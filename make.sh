@@ -25,7 +25,7 @@ rpl @head-links '''<link rel="icon" href="pride-flag.ico">
 rpl @header '''<header>
             <h1>glateo.net</h1>
             <a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a>
-            <a href="index.html">Hejmo</a>
+            <a href="hejmo">Hejmo</a>
             <a href="icxismo-kaj-ipismo">I&#265ismo kaj Ipismo</a>
             <a href="rimedoj">Listo de &#264iuj Rimedoj</a>
             <a href="parentismo">Parentismo</a>

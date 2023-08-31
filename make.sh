@@ -2,7 +2,7 @@
 text_files='''
     .htaccess
     demandoj-kaj-respondoj
-    glateo.css
+    retpagaro.css
     icxismo-kaj-ipismo
     hejmo
     parentismo
@@ -21,7 +21,7 @@ cd glateo.net/
 
 rpl @head-links '''<link rel="icon" href="pride-flag.ico">
         <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="glateo.css">''' $text_files
+        <link rel="stylesheet" href="retpagaro.css">''' $text_files
 rpl @header '''<header>
             <h1>glateo.net</h1>
             <a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a>

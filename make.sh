@@ -9,6 +9,8 @@ text_files='''
     reset.css
     riismo
     rimedoj
+    vortaro
+    vortaro.php
 '''
 binary_files='''
     pride-flag.ico
@@ -30,6 +32,7 @@ rpl @header '''<header>
             <a href="rimedoj">Listo de &#264iuj Rimedoj</a>
             <a href="parentismo">Parentismo</a>
             <a href="riismo">Riismo</a>
+            <a href="vortaro">Vortaro (ne finata)</a>
         </header>''' $text_files
 rpl @footer '''<footer>
         </footer>''' $text_files

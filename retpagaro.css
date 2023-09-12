@@ -20,6 +20,18 @@ article {
     border-right: 32px solid rgb(96, 192, 96);
     padding: 16px;
     text-align: left;
+    display: flex;
+    flex-direction: row;
+}
+
+#content {
+    max-width: 92%;
+    order: 0;
+}
+
+#language-menu {
+    width: 64px;
+    order: 1;
 }
 
 h1 {

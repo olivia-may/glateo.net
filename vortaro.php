@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@lingvo-cookie
 <html>
     <head>
         @head-links
@@ -6,6 +7,7 @@
     <body>
         @header
         <article>
+            <div id="content">
 <?php 
 $transllang = $_POST['translate-language'];
 ?>
@@ -49,11 +51,14 @@ if (strcmp($transllang, 'eo -> en') == 0) {
         $translword = 'woman/girl';
 }
 
-if (strcmp($translword, "\0") == 0)
-    echo "Word not found, try another word";
+if (strcmp($translword, "\0") == 0) {
+    if (isset($_POST['translate-language']))
+        echo "Word not found, try another word";
+}
 else
     echo "<p>$word</p><p>&emsp;$translword</p>";
 ?>
+            </div>@language-menu
         </article>
     </body>
 </html>

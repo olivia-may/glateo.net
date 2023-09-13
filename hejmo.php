@@ -34,7 +34,7 @@ and speak Esperanto neseksisme.</p>
     third person singular pronoun "ri".</li>
     <li><a href="vortaro.php">Vortaro (ne finata)</a> - The dictionary of this website (not finished)</li>
 </ul>';
-else
+else # ciame Esperanto estas defauxlta
     echo '
 <p>GLAT-a Esperanto mi nomas la dialekton ke GLAT-aj Esperantistoj uzas. 
 Cxi-tiun retpagaro povas helpi onin por lerni novajn neoficialajn vortojn. Se
@@ -51,7 +51,8 @@ anstatauxigi la radikojn icxajn kun genraj neuxtralaj radikoj.</li>
     <li><a href="riismo.php">Riismo</a> - Lernu riismon, genra neuxtrala tripersona 
 sola pronomo, "ri".</li>
     <li><a href="vortaro.php">Vortaro (ne finata)</a> - La vortaro de la retpagaro, ne finata.</li>
-</ul>';?>
+</ul>';
+?>
             </div>@language-menu
         </article>
         @footer

@@ -21,16 +21,16 @@ cp ${text_files[*]} ${binary_files[*]} glateo.net/
 cd glateo.net/
 
 for file_name in ${text_files[@]}; do
-    rpl @lingvo-cookie '''<?php
-if (!empty($_GET['lingvo'])) {
-    $_COOKIE['lingvo'] = $_GET['lingvo'];
+    ../src/rpl '@lingvo-cookie' '''<?php
+if (!empty($_GET["lingvo"])) {
+    $_COOKIE["lingvo"] = $_GET["lingvo"];
 }
-setcookie('lingvo', $_COOKIE['lingvo']);
+setcookie("lingvo", $_COOKIE["lingvo"]);
 ?>''' $file_name
-    rpl @head-links '''<link rel="icon" href="pride-flag.ico">
+    ../src/rpl '@head-links' '''<link rel="icon" href="pride-flag.ico">
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="retpagaro.css">''' $file_name
-    rpl @header '''<header>
+    ../src/rpl '@header' '''<header>
             <h1>glateo.net</h1>
             <a href="demandoj-kaj-respondoj.php">Demandoj kaj Respondoj</a>
             <a href="hejmo.php">Hejmo</a>
@@ -40,10 +40,10 @@ setcookie('lingvo', $_COOKIE['lingvo']);
             <a href="riismo.php">Riismo</a>
             <a href="vortaro.php">Vortaro (ne finata)</a>
         </header>''' $file_name
-    rpl @language-menu '''<div id="language-menu">
+    ../src/rpl '@language-menu' '''<div id="language-menu">
                 <a href='''"\"$file_name?lingvo=eo\""'''>Esperanto</a>
                 <a href='''"\"$file_name?lingvo=en\""'''>English</a>
             </div>''' $file_name
-    rpl @footer '''<footer>
+    ../src/rpl @footer '''<footer>
         </footer>''' $file_name
 done

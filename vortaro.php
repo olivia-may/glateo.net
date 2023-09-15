@@ -18,7 +18,14 @@ $transllang = $_POST['translate-language'];
                 </select>
                 <br>
                 <input name="word" id="word" type="text">
-                <button type="submit">Translate</button>
+<?php
+if ($_COOKIE['lingvo'] == 'en')
+    echo '
+<button type="submit">Translate</button>';
+else
+    echo '
+<button type="submit">Traduki</button>';
+?>
             </form>
 <?php
 $word = strtolower(htmlspecialchars($_POST['word']));

@@ -15,7 +15,7 @@ header h1 {
 }
 
 article {
-    background-color: white;
+    background-color: rgb(239, 239, 239);
     border-left: 32px solid rgb(96, 192, 96);
     border-right: 32px solid rgb(96, 192, 96);
     padding: 16px;
@@ -25,29 +25,27 @@ article {
 }
 
 #content {
-    max-width: 92%;
+    width: 92%;
     order: 0;
 }
 
 #language-menu {
-    width: 64px;
+    width: 72px;
     order: 1;
 }
 
 h1 {
     font-size: 24px;
-    padding-top: 4px;
-    padding-bottom: 8px;
+    padding-bottom: 16px;
 }
 
 h2 {
     font-size: 20px;
-    padding-top: 4px;
-    padding-bottom: 8px;
+    padding-top: 16px;
+    padding-bottom: 24px;
 }
 
 ul {
-    background-color: rgb(223, 223, 223);
     list-style: circle;
     padding-left: 16px;
     margin-top: 4px;
@@ -55,11 +53,14 @@ ul {
 }
 
 ol {
-    background-color: rgb(223, 223, 223);
     list-style: decimal;
-    padding-left: 26px;
+    padding-left: 32px;
     margin-top: 4px;
     margin-bottom: 4px;
+}
+
+li {
+    background-color: rgb(223, 223, 223);
 }
 
 footer {

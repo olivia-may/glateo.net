@@ -70,31 +70,7 @@ Official roots or roots made from official roots are marked with a star &#9734.<
 </ol>
 <p>All other words are not defined in the Fundamento, therefore they
 can be used gender-neutrally without being kontrauxfundamenta.</p>
-<h2>Example sentences</h2>
-<p>Without <a = href="riismo.php">riismo</a> or parentismo:</p>
-<ol>
-    <li>
-        Li estas mia patro.<br>
-        Sxi estas mia patrino.<br>
-        Tiu estas mia (?)patro.<br>
-    </li>
-    <li>
-        Mi havas tri knabojn.<br>
-        Mi havas tri knabinojn.<br>
-        Mi havas tri geknabojn.<br>
-    </li>
-</ol>
-<p>With riismo and parentismo:</p>
-<ol>
-    <li>
-        Li estas mia parento.<br>
-        Sxi estas mia parento.<br>
-        Ri estas mia parento.<br>
-    </li>
-    <li>
-        Mi havas tri kidojn.<br>
-    </li>
-</ol>';
+';
 else
     echo '
 <p>Parentismo estas ideo por anstatauxigi la icxajn radikojn en la Fundamento
@@ -154,8 +130,26 @@ Oficialaj radikoj aux kunvortoj havas &#9734 stelon.</p>
 </ol>
 <p>Aliaj vortoj aux radikoj ne estas en la Fundamento, do ili povas esti uzada
 nekontrauxfundamente.</p>
-<h2>Ekzemple jen frazoj</h2>
-<p>Sen <a = href="riismo">riismo</a> aux parentismo:</p>
+';
+?>
+                <h2>Ge</h2>
+<?php
+if ($_COOKIE['lingvo'] == 'en')
+    echo '
+<p>The prefix ge- is used on plural root words to mark that the group
+is made up of multiple genders.</p>
+<ul>
+    <li>
+        geparentoj - specifying multiple parents of at least 2 genders<br>
+        parentoj - multiple parents (not specifying gender)<br>
+    </li>
+    <li>
+        gesahodoj - specifying multiple siblings of at least 2 genders<br>
+        sahodoj - multiple siblings<br>
+    </li>
+</ul>
+<h2>Example sentences</h2>
+<p>Without <a href="riismo.php">riismo</a>, <a = href="icxismo-kaj-ipismo.php">i&#265ismo</a>, or parentismo:</p>
 <ol>
     <li>
         Li estas mia patro.<br>
@@ -167,8 +161,11 @@ nekontrauxfundamente.</p>
         Mi havas tri knabinojn.<br>
         Mi havas tri geknabojn.<br>
     </li>
+    <li>
+        Unu kuzo kaj unu kuzino estas du gekuzoj.
+    </li>
 </ol>
-<p>Kun riismo kaj parentismo:</p>
+<p>With riismo and parentismo:</p>
 <ol>
     <li>
         Li estas mia parento.<br>
@@ -177,6 +174,54 @@ nekontrauxfundamente.</p>
     </li>
     <li>
         Mi havas tri kidojn.<br>
+    </li>
+    <li>
+        Unu kuzeni&#265o kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
+    </li>
+</ol>';
+else
+    echo '
+<p>La prefikso ge- estas uzata por pluralaj radikoj por marki ke la grupo estas
+ el multaj genroj.</p>
+<ul>
+    <li>
+        geparentoj - montri ke multaj parentoj el almenaux du genroj<br>
+        parentoj - multaj parentoj (ne montras genron)<br>
+    </li>
+    <li>
+        gesahodoj - montri ke multaj sahodoj el almenaux du genroj<br>
+        sahodoj - multaj sahodoj (ne montras genron)<br>
+    </li>
+</ul>
+<h2>Ekzemple jen frazoj</h2>
+<p>Sen <a href="riismo.php">riismo</a>, <a href="icxismo-kaj-ipismo.php">i&#265ismo</a>, aux parentismo:</p>
+<ol>
+    <li>
+        Li estas mia patro.<br>
+        Sxi estas mia patrino.<br>
+        Tiu estas mia (?)patro.<br>
+    </li>
+    <li>
+        Mi havas tri knabojn.<br>
+        Mi havas tri knabinojn.<br>
+        Mi havas tri geknabojn.<br>
+    </li>
+    <li>
+        Unu kuzo kaj unu kuzino estas du gekuzoj.
+    </li>
+</ol>
+<p>Kun riismo, i&#265ismo, kaj parentismo:</p>
+<ol>
+    <li>
+        Li estas mia parento.<br>
+        Sxi estas mia parento.<br>
+        Ri estas mia parento.<br>
+    </li>
+    <li>
+        Mi havas tri kidojn.<br>
+    </li>
+    <li>
+        Unu kuzeni&#265o kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
     </li>
 </ol>';
 ?>

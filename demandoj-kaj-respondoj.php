@@ -24,7 +24,12 @@ if ($_COOKIE['lingvo'] == 'en')
     &#285iismo it is sometimes difficult to know if one is 
     refering to an object or a person. Many LGBT Esperantists
     prefer riismo.</p>
-</ul>';
+</ul>
+<h2>Clarification</h2>
+<p>This website uses the words "sex" as biological sex and "gender" as the way
+someone feels about themself to be more clear to trans people. It uses "they"
+as a gender-neutral first person singular pronoun (like he or she but no 
+gender).</p>';
 else
     echo '
 <h1>Demandoj kaj Respondoj</h1>
@@ -38,7 +43,10 @@ else
     <p>R. Riismaj homoj estas pli multaj. Kun &#285iismo iame estas
     malfacila scii ke oni babilas pri objecto aux homo. 
     Riismo estas preferata laux GLAT-aj Esperantistoj.</p>
-</ul>';
+</ul>
+<h2>Klarigi</h2>
+<p>Cxi tiu retpagaro uzas la vorton sekso kiel biologia sekso kaj la vorton 
+genro kiel la mensa sento pri iu, por klarigxi al transgenruloj.</p>';
 ?>
             </div>@language-menu
         </article>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @head-links
+        <title>Pri &#265i-tiu retpagaro</title>
+    </head>     
+    <body>
+        @header
+        <article>
+            <div id="content">
+                <h1>Pri cxi tiu retpagaro</h1>
+                <p>Mi faris cxi tiun retpagaron cxar mi volas Esperanton esti pli bonvene.
+                Mi rimarkis ke ne estas multaj hominoj en la Esperanta komunumo (almenaux ne
+                cxirkaux mi) kaj estas malameco en iuj partoj de la komunumo. Mia espero estas
+                ke tiu retpagaro plibonigus kaj pliakceptigus la internacian lingvonwill. Se estas
+                homoj, kiu foriris Esperanton cxar gxia kerimarkata seksismo, mia espero estas
+                ke ili fartos pli bone, post la vido de tiu retpagaro.</p>
+                <p><b>Mi dankas vin por visiti!</b></p>
+            </div>@language-menu
+        </article>
+        @footer
+    </body>
+</html>

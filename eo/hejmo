@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @head-links
+        <title>GLAT-a Esperanto</title>
+    </head>
+    <body>
+        @header
+        <article>
+            <div id='content'>
+                <h1>Bonvenon al GLAT-a Esperanto!</h1>
+                <p>GLAT-a Esperanto mi nomas la dialekton ke GLAT-aj Esperantistoj uzas. 
+                Cxi-tiun retpagaro povas helpi onin por lerni novajn neoficialajn vortojn. Se
+                 vi estas Esperantisto, vi povus uzi cxi-tiun retpagaron por helpi vin grandigi
+                 viajn konvortojn kaj paroli Esperanton neseksisme.</p>
+                <ul>
+                    <li><a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a> - Demandoj kaj respondoj por la -ismojn mi elektas.</li>
+                    <li><a href="icxismo-kaj-ipismo">I&#265ismo kaj Ipismo</a> -
+                    Lernu icxismon kaj ipismon, la genraj/seksaj sufiksoj esti uzi en Esperanto.</li>
+                    <li><a href="rimedoj">Listo de &#264iuj Rimedoj</a> - Listoj de cxiuj rimedoj el
+                la retpagaro, kaj plu.</li>
+                    <li><a href="parentismo">Parentismo</a> - Lernu parentismon, propono por
+                anstatauxigi la radikojn icxajn kun genraj neuxtralaj radikoj.</li>
+                    <li><a href="riismo">Riismo</a> - Lernu riismon, genra neuxtrala tripersona 
+                sola pronomo, "ri".</li>
+                    <li><a href="vortaro.php">Vortaro (ne finata)</a> - La vortaro de la retpagaro, ne finata.</li>
+                </ul>
+            </div>@language-menu
+        </article>
+        @footer
+    </body>
+</html>

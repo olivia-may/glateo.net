@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @head-links
+        <title>I&#265ismo kaj Ipismo</title>
+    </head>
+    <body>
+        @header
+        <article>
+            <div id="content">
+                <h1>I&#265ismo kaj Ipismo</h1>
+                <p>I&#265ismo kaj Ipismo estas konceptoj pri uzi genrajn/seksajn markilojn
+                 por viraj kaj neduumaj homoj.
+                <h2>I&#265ismo</h2>
+                <p>-I&#265- estas la vira genra/seksa markilo. Estas
+                kiel mala -in-. Oni povas uzi gxin por genro-neuxtralaj vortoj. 
+                Pro tiu sistemo, plej vortradikoj, kiu povas havi genron vivan,
+                alprenas genro-neuxtralecon, anstataux virecon. Iom da radikoj
+                ankoraux alprenas vira, ekz viro, avo, patro. Oni povus uzi 
+                -i&#265- por &#265i tiujn vortojn, sed ili havus la saman signifon.
+                <h2>Ipismo</h2>
+                <p>-Ip- estas markilo por neduumuloj, homoj kiu ne estas
+                i&#265aj aux inaj. Nur uzu gxin por homoj, &#265ar oni ne povas
+                demandi al bestoj se gxi estas neduuma.
+                <h2>Ekzemplaj vortoj</h2>
+                <ul>
+                    <li>
+                        Amiko(j) (nepreciza(j) genro(j))<br>
+                        Amikino(j)<br>
+                        Amiki&#265o(j) (vira(j) homo(j))<br>
+                        Amikipo(j) (neduuma(j))<br>
+                    </li>
+                    <li>
+                        Esperantisto(j) (nepreciza(j) genro(j))<br>
+                        Esperantistino(j)<br>
+                        Esperantisti&#265o(j) (vira(j) homo(j))<br>
+                        Esperantistipo(j) (neduuma(j))<br>
+                    </li>
+                    <li>
+                        Homo(j) (nepreciza(j) genro(j))<br>
+                        Homino(j)<br>
+                        Homi&#265o(j) (vira(j) homo(j))<br>
+                        Homipo(j) (neduuma(j))<br>
+                    <li>
+                        Kato(j) (nepreciza(j) sekso(j))<br>
+                        Katino(j)<br>
+                        Kati&#265o(j) (vira(j) sekso(j))<br>
+                    </li>
+                    <li>
+                        Koko(j) (nepreciza(j) sekso(j))<br>
+                        Kokino(j)<br>
+                        Koki&#265o(j) (vira(j) sekso(j))<br>
+                    </li>
+                    <li>
+                        Koramiko(j) (nepreciza(j) genro(j))<br>
+                        Koramikino(j)<br>
+                        Koramiki&#265o(j) (vira(j) homo(j))<br>
+                        Koramikipo(j) (neduuma(j))<br>
+                    </li>
+                </ul>
+            </div>@language-menu
+        </article>
+        @footer
+    </body>
+</html>

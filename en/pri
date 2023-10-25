@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @head-links
+        <title>Pri &#265i-tiu retpagaro</title>
+    </head>     
+    <body>
+        @header
+        <article>
+            <div id="content">
+                <h1>About This Website</h1>
+                <p>I made this website because I want Esperanto to be more inclusive.
+                I keep noticing there\'s not many women in the Esperanto community (at least
+                around me) and there is some bigotry in the general community. My hope is
+                this website will make the international language more inclusive and
+                accepting, and if there are people turning away from Esperanto because of
+                its perceived sexism, my hope is they will feel better after visiting this website.</p>
+
+                <p><b>Thank you for visiting!</b></p>
+            </div>@language-menu
+        </article>
+        @footer
+    </body>
+</html>

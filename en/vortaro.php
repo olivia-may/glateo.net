@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-@lingvo-cookie
 <html>
     <head>
         @head-links
@@ -8,9 +7,6 @@
         @header
         <article>
             <div id="content">
-<?php 
-$transllang = $_POST['translate-language'];
-?>
             <form action="vortaro.php" method="post">
                 <select name="translate-language">
                     <option value="en -> eo" <?php if (strcmp($transllang, 'en -> eo') == 0) echo 'selected="selected"';?>>English -> Esperanto</option>
@@ -18,14 +14,7 @@ $transllang = $_POST['translate-language'];
                 </select>
                 <br>
                 <input name="word" id="word" type="text">
-<?php
-if ($_COOKIE['lingvo'] == 'en')
-    echo '
-<button type="submit">Translate</button>';
-else
-    echo '
-<button type="submit">Traduki</button>';
-?>
+<button type="submit">Translate</button>
             </form>
 <?php
 $word = strtolower(htmlspecialchars($_POST['word']));

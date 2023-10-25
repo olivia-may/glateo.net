@@ -1,1 +1,2 @@
-DirectoryIndex hejmo.php
+DirectoryIndex hejmo
+RedirectMatch ^/$ /eo/hejmo

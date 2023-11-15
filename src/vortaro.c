@@ -28,7 +28,7 @@ const char *dictionary[DICTIONARY_LEN][3] = {
     {"avuo",            "(avu·o)",          "grandparent"},
     {"duĉo",            "(duĉ·o)",          "(gender neutral) duke"},
     {"eŝo",             "(eŝ·o)",           "spouse"},
-    {"femino",          "(femin·o)",       "woman"},
+    {"femino",          "(femin·o)",        "woman"},
     {"fianceo",         "(fiance·o)",       "(gender neutral) fiancé"},
     {"filo",            "(fil·o)",          "child, (gender neutral) son"},
     {"grofo",           "(grof·o)",         "(title) count"},

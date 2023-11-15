@@ -17,8 +17,12 @@ char *get_file_contents(const char *loc) {
     char *file_contents = NULL;
     
     stat(loc, &statinfo);
-    printf("%d\n", statinfo.st_size);
     file_contents = (char *)malloc(statinfo.st_size * sizeof(char));
+    if (!file_contents) {
+        fprintf(stderr, "Failed to allocate memory to read %s\n", loc);
+        exit(2);
+    }
+
     int i = 0;
     int ch;
     while (true) {
@@ -30,7 +34,6 @@ char *get_file_contents(const char *loc) {
     file_contents[i] = '\0';
     fclose(file);
 
-    printf("%s", file_contents);
     return file_contents;
 }
 
@@ -45,11 +48,17 @@ bool is_stream_match_word(const char *stream, const char *word) {
     return true;
 }
 
-char *insert_string(char *insertee_string, int index, const char *inserter_string) {
+char *insert_string(char *insertee_string, const int index, const char *inserter_string) {
     char *new_string = 
         (char *)malloc((strlen(insertee_string) + strlen(inserter_string) + 2)
-            * sizeof(char));
+        * sizeof(char));
     int i, j;
+
+    if (!new_string) {
+        fprintf(stderr, "Failed to allocate memory to insert %s into stream\n",
+            inserter_string);
+        exit(2);
+    }
 
     for (i = 0; i < index; i++) {
         new_string[i] = insertee_string[i];
@@ -66,23 +75,37 @@ char *insert_string(char *insertee_string, int index, const char *inserter_strin
 }
 
 // beginning of stream
-void remove_chars(char *stream, int amount) {
+void remove_chars(char *stream, const int amount) {
     int i;
     for (i = 0; i < strlen(stream); i++) {
         stream[i] = stream[i + amount];
     }
 }
 
-// 0       1            2          3
-// replace "fromstring" "tostring" filename
+// 0   1        2        3
+// rpl OLD-TEXT NEW-TEXT FILE
 int main(int argc, char **argv) {
-    if (argc <= 3) {
-        printf("Not enough arguments\n");
-        return 0;
+
+    if (argc < 4) {
+        
+        printf("usage: rpl [-h]\n           OLD-TEXT NEW-TEXT FILE\n");
+
+        if (argc > 1) {
+            if (strcmp("-h", argv[1]) == 0 || strcmp("--help", argv[1]) == 0) {
+
+                printf("Search and replace text in files.\n\npositional arguments:\n  OLD-TEXT\n  NEW-TEXT\n  FILE\n\noptional arguments:\n-h, --help\n");
+                return 0;
+            }
+        }
+
+        fprintf(stderr, "rpl: error: the following arguments are required: OLD-TEXT, NEW-TEXT, FILE\n");
+    
+        return 1;
     }
     if (access(argv[3], F_OK) != 0) {
-        printf("File not found '%s'\n", argv[3]);
-        return 0;
+
+        fprintf(stderr, "rpl: error: file not found '%s'\n", argv[3]);
+        return 1;
     }
 
     char *stream = get_file_contents(argv[3]);

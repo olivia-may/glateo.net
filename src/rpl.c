@@ -3,17 +3,22 @@
  * TODO: finish this program
  */
 
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-#include "stdbool.h"
-#include "unistd.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <unistd.h>
+#include <sys/stat.h>
 
-char *get_file_contents(char *loc) {
+char *get_file_contents(const char *loc) {
+
+    struct stat statinfo;
     FILE *file = fopen(loc, "r");
     char *file_contents = NULL;
-    // 2 because null char
-    file_contents = (char *)malloc(2 * sizeof(char));
+    
+    stat(loc, &statinfo);
+    printf("%d\n", statinfo.st_size);
+    file_contents = (char *)malloc(statinfo.st_size * sizeof(char));
     int i = 0;
     int ch;
     while (true) {
@@ -21,12 +26,11 @@ char *get_file_contents(char *loc) {
         if (ch < 0) break;
         file_contents[i] = ch;
         i++;
-        file_contents = 
-        (char *)realloc(file_contents, (i + 2) * sizeof(char));
     }
     file_contents[i] = '\0';
     fclose(file);
 
+    printf("%s", file_contents);
     return file_contents;
 }
 
@@ -83,7 +87,7 @@ int main(int argc, char **argv) {
 
     char *stream = get_file_contents(argv[3]);
     
-    for (int i = 0; i < strlen(stream); i++) {
+    for (int i = 0; i < strlen(stream) - strlen(argv[1]); i++) {
         if (is_stream_match_word(&stream[i], argv[1])) {
             remove_chars(&stream[i], strlen(argv[1]));
             stream = insert_string(stream, i, argv[2]);
@@ -91,7 +95,9 @@ int main(int argc, char **argv) {
     }
     
     FILE *file = fopen(argv[3], "w");
-    fprintf(file, stream);
+    fprintf(file, "%s", stream);
 
+    fclose(file);
+    free(stream);
     return 0;
 }

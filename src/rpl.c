@@ -10,33 +10,6 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-char *get_file_contents(const char *loc) {
-
-    struct stat statinfo;
-    FILE *file = fopen(loc, "r");
-    char *file_contents = NULL;
-    
-    stat(loc, &statinfo);
-    file_contents = (char *)malloc(statinfo.st_size * sizeof(char));
-    if (!file_contents) {
-        fprintf(stderr, "Failed to allocate memory to read %s\n", loc);
-        exit(2);
-    }
-
-    int i = 0;
-    int ch;
-    while (true) {
-        ch = fgetc(file);
-        if (ch < 0) break;
-        file_contents[i] = ch;
-        i++;
-    }
-    file_contents[i] = '\0';
-    fclose(file);
-
-    return file_contents;
-}
-
 // looks at beginning of stream
 bool is_stream_match_word(const char *stream, const char *word) {
     for (int j = 0; j < strlen(word); j++) {            
@@ -108,17 +81,49 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    char *stream = get_file_contents(argv[3]);
+    int i;
+    struct stat statinfo;
+    FILE *file;
+    char *stream;
+    int diff;
     
-    for (int i = 0; i < strlen(stream) - strlen(argv[1]); i++) {
+    stat(argv[3], &statinfo);
+    diff = statinfo.st_size - (signed)strlen(argv[1]);
+    if (diff < 0) {
+        fprintf(stderr, "rpl: error: OLD-TEXT larger than file\n");
+        return 1;
+    }
+   
+    // + 1 for null char
+    stream = (char *)malloc((statinfo.st_size + 1) * sizeof(char));
+    if (!stream) {
+        fprintf(stderr, "Failed to allocate memory to read %s\n", argv[3]);
+        return 2;
+    }
+
+    file = fopen(argv[3], "r");
+    
+    int ch;
+    i = 0;
+    while (true) {
+        ch = fgetc(file);
+        if (ch < 0) break;
+        stream[i] = ch;
+        i++;
+    }
+    stream[i] = '\0';
+
+    fclose(file);
+
+    for (i = 0; i < strlen(stream) - strlen(argv[1]); i++) {
         if (is_stream_match_word(&stream[i], argv[1])) {
             remove_chars(&stream[i], strlen(argv[1]));
             stream = insert_string(stream, i, argv[2]);
         }
     }
-    
-    FILE *file = fopen(argv[3], "w");
-    fprintf(file, "%s", stream);
+
+    file = fopen(argv[3], "w");
+    fputs(stream, file);
 
     fclose(file);
     free(stream);

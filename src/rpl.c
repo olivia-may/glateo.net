@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
 
     fclose(file);
 
-    for (i = 0; i < strlen(stream) - strlen(argv[1]); i++) {
+    for (i = 0; i < diff + 1; i++) {
         if (is_stream_match_word(&stream[i], argv[1])) {
             remove_chars(&stream[i], strlen(argv[1]));
             stream = insert_string(stream, i, argv[2]);

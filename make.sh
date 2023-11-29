@@ -40,21 +40,20 @@ for file_name in ${html_files[@]}; do
         <link rel="stylesheet" href="../reset.css">
         <link rel="stylesheet" href="../retpagaro.css">''' $file_name
     ../../src/rpl '@header' '''<header>
-            <h1>glateo.net</h1>
+            <h1><a href="hejmo">glateo.net</a></h1>
             <a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a>
-            <a href="hejmo">Hejmo</a>
             <a href="icxismo-kaj-ipismo">I&#265ismo kaj Ipismo</a>
-            <a href="rimedoj">Listo de &#264iuj Rimedoj</a>
             <a href="parentismo">Parentismo</a>
-            <a href="pri">Pri (ne finita)</a>
             <a href="riismo">Riismo</a>
-            <a href="vortaro.php">Vortaro (ne finita)</a>
+            <a href="vortaro.php">Vortaro</a>
         </header>''' $file_name
     ../../src/rpl '@language-menu' '''<div id="language-menu">
                 <a href='''"\"../eo/$file_name\""'''>Esperanto</a>
                 <a href='''"\"../en/$file_name\""'''>English</a>
             </div>''' $file_name
     ../../src/rpl '@footer' '''<footer>
+            <a href="pri">Pri</a>
+            <a href="rimedoj">Listo de &#264iuj Rimedoj</a>
         </footer>''' $file_name
 
 done
@@ -67,21 +66,20 @@ for file_name in ${html_files[@]}; do
         <link rel="stylesheet" href="../reset.css">
         <link rel="stylesheet" href="../retpagaro.css">''' $file_name
     ../../src/rpl '@header' '''<header>
-            <h1>glateo.net</h1>
+            <h1><a href="hejmo">glateo.net</a></h1>
             <a href="demandoj-kaj-respondoj">Questions and Answers</a>
-            <a href="hejmo">Home</a>
             <a href="icxismo-kaj-ipismo">I&#265ismo and Ipismo</a>
-            <a href="rimedoj">List of all sources</a>
             <a href="parentismo">Parentismo</a>
-            <a href="pri">About (ne finita)</a>
             <a href="riismo">Riismo</a>
-            <a href="vortaro.php">Dictionary (ne finita)</a>
+            <a href="vortaro.php">Dictionary</a>
         </header>''' $file_name
     ../../src/rpl '@language-menu' '''<div id="language-menu">
                 <a href='''"\"../eo/$file_name\""'''>Esperanto</a>
                 <a href='''"\"../en/$file_name\""'''>English</a>
             </div>''' $file_name
     ../../src/rpl '@footer' '''<footer>
+            <a href="pri">About</a>
+            <a href="rimedoj">List of all sources</a>
         </footer>''' $file_name
 
 done

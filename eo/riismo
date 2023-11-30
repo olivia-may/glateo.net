@@ -8,15 +8,19 @@
         @header
         <article>
             <div id="content">
+
                 <h1>Riismo</h1>
-                <p>Riismo estas ideo por neprecizogenra tripersona
-                unuopa pronomo "Ri". Oni povas uzi ĝin por ne devus supozi genron de iu.
-                 Por mencii iun, kiu ne volas sian genron esti supozata. Kiam oni ne konas
-                 ies genron. Eĉ se vi ne ŝatas uzi genratajn pronomojn</p>
-                <p>Plej da junaj GLAT-aj Esperantisoj uzas la pronomon ri. Ĝi estas
-                plej koniĝi kaj akceptiĝi.</p>
+                <p>Riismo estas ideo por neprecizogenra tripersona unuopa
+                pronomo "Ri". Oni povas uzi ĝin por ne devus supozi genron de
+                iu. Por mencii iun, kiu ne volas sian genron esti supozata.
+                Kiam oni ne konas ies genron. Eĉ se vi ne ŝatas uzi
+                genratajn pronomojn</p>
+                <p>Plej da junaj GLAT-aj Esperantisoj uzas la pronomon ri. 
+                "Ri" estas plej koniĝata kaj akceptiĝata.</p>
+                
                 <h2>Exzemplaj Frazoj</h2>
                 @riismo-example
+            
             </div>@language-menu
         </article>
         @footer

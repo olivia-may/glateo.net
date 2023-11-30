@@ -8,11 +8,14 @@
         @header
         <article>
             <div id="content">
+                
                 <h1>Rimedoj</h1>
                 <p>Listo de rimedoj por la informo de la retpagaro</p>
                 @resources
+                
                 <p>Ekstraj rimedoj</p>
                 @extra-resources
+
             </div>@language-menu
         </article>
         @footer

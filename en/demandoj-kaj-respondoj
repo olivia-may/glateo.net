@@ -8,24 +8,35 @@
         @header
         <article>
             <div id="content">
+
                 <h1>Questions and Answers</h1>
                 <ul>
-                    <li><h2>Q. Why parentismo and not j-sistemo or something else?</h2>
-                    <p>A. The creator of j-sistemo, Markos Kramer, <a href="https://web.archive.org/web/20210211083523/https://lingvakritiko.com/2021/01/06/seksneutralaj-parencovortoj-rezultoj-de-opinisondo/">
-                    has stopped using it.</a> They use other systems. And 
-                    (Transir-faciliga) parentismo is comparatively well known 
-                    enough and would be easy for older Esperantists to pick up.</p></li>
-                    <li><h2>Q. Why riismo and not ĝiismo?</h2>
-                    <p>A. Ri is more popular as a general use pronoun. And with 
-                    ĝiismo it is sometimes difficult to know if one is 
-                    refering to an object or a person. Many LGBT Esperantists
-                    prefer riismo.</p></li>
+                    <li>
+                        <h2>Q. Why parentismo and not j-sistemo or something
+                        else?</h2>
+                        <p>A. The creator of j-sistemo, Markos Kramer,
+                        <a href="https://web.archive.org/web/20210211083523/https://lingvakritiko.com/2021/01/06/seksneutralaj-parencovortoj-rezultoj-de-opinisondo/">
+                        has stopped using it.</a> They use other systems. And
+                        (Transir-faciliga) parentismo is comparatively well
+                        known enough and would be easy for older Esperantists
+                        to pick up.</p>
+                    </li>
+                    <li>
+                        <h2>Q. Why riismo and not ĝiismo?</h2>
+                        <p>A. Ri is more popular as a general use pronoun. And
+                        with ĝiismo it is sometimes difficult to know if one
+                        is refering to an object or a person. Many LGBT
+                        Esperantists prefer riismo.</p>
+                    </li>
                 </ul>
+
                 <h2>Clarification</h2>
-                <p>This website uses the words "sex" as biological sex and "gender" as the way
-                someone feels about themself to be more clear to trans people. It uses "they"
-                as a gender-neutral first person singular pronoun (like he or she but no 
-                gender).</p>
+                <p>This website uses the words "sex" as biological sex and
+                "gender" as the way someone feels about themself to be more
+                clear to trans people. It uses "they" as a gender-neutral
+                first person singular pronoun (like he or she but no gender).
+                </p>
+
             </div>@language-menu
         </article>
         @footer

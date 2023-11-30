@@ -8,11 +8,14 @@
         @header
         <article>
             <div id="content">
+
                 <h1>Resources</h1>
                 <p>The list of resources used for the information on this website</p>
                 @resources
+                
                 <p>Extra resources</p>
                 @extra-resources
+
             </div>@language-menu
         </article>
         @footer

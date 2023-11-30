@@ -8,11 +8,15 @@
         @header
         <article>
             <div id="content">
+
                 <h1>Parentismo</h1>
-                <p>Parentismo is the idea of replacing the assumed male as default roots in
-                 the Fundamento with gender-neutral roots.<p>
+                <p>Parentismo is the idea of replacing the assumed male as
+                default roots in the Fundamento with gender-neutral roots.
+                </p>
+                
                 <p> The roots defined in
-                <a href="https://www.akademio-de-esperanto.org/fundamento/universala_vortaro.html">La Universala Vortaro de la Fundamento</a> 
+                <a href="https://www.akademio-de-esperanto.org/fundamento/universala_vortaro.html">
+                La Universala Vortaro de la Fundamento</a> 
                 explicity as male are:</p>
                 <ol>
                     <li>abato - abbot</li>
@@ -38,29 +42,41 @@
                     <li>vidvo - widower</li>
                     <li>viro - man</li>
                 </ol>
-                <p>Gender-nonspecific alternatives to these roots.
-                Official roots or roots made from official roots are marked with a star ☆.</p>
+                
+                <p>Gender-nonspecific alternatives to these roots. Official
+                roots or roots made from official roots are marked with a
+                star ☆.</p>
                 @parentismo-roots
-                <p>All other words are not defined in the Fundamento, therefore they
-                can be used gender-neutrally without being kontraŭfundamenta.</p>
+                <p>All other words are not defined in the Fundamento, therefore
+                they can be used gender-neutrally without being
+                kontraŭfundamenta.</p>
+
                 <h2>Ge</h2>
-                <p>The prefix ge- is used on plural root words to mark that the group
-                is made up of multiple genders.</p>
+                <p>The prefix ge- is used on plural root words to mark that
+                the group is made up of multiple genders.</p>
                 <ul>
                     <li>
-                        geparentoj - specifying multiple parents of at least 2 genders<br>
+                        geparentoj - specifying multiple parents of at least
+                        two genders<br>
                         parentoj - multiple parents (not specifying gender)<br>
                     </li>
                     <li>
-                        gesahodoj - specifying multiple siblings of at least 2 genders<br>
+                        gesahodoj - specifying multiple siblings of at least
+                        two genders<br>
                         sahodoj - multiple siblings<br>
                     </li>
                 </ul>
+
                 <h2>Example sentences</h2>
-                <p>Without <a href="riismo">riismo</a>, <a = href="icxismo-kaj-ipismo">iĉismo</a>, or parentismo:</p>
+                <p>Without 
+                <a href="riismo">riismo</a>,
+                <a = href="icxismo-kaj-ipismo">iĉismo</a>,
+                or parentismo:</p>
                 @parentismo-patrismo-example
+                
                 <p>With riismo and parentismo:</p>
                 @parentismo-example
+
             </div>@language-menu
         </article>
         @footer

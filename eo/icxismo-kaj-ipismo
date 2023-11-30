@@ -8,20 +8,25 @@
         @header
         <article>
             <div id="content">
+
                 <h1>Iĉismo kaj Ipismo</h1>
-                <p>Iĉismo kaj Ipismo estas konceptoj pri uzi genrajn/seksajn markilojn
-                 por viraj kaj neduumaj homoj.
+                
+                <p>Iĉismo kaj Ipismo estas konceptoj pri uzi genrajn/seksajn
+                markilojn por viraj kaj neduumaj homoj.</p>
+                
                 <h2>Iĉismo</h2>
                 <p>-Iĉ- estas la vira genra/seksa markilo. Estas
                 kiel mala -in-. Oni povas uzi ĝin por genro-neŭtralaj vortoj. 
                 Pro tiu sistemo, plej vortradikoj, kiu povas havi genron vivan,
                 alprenas genro-neŭtralecon, anstataŭ virecon. Iom da radikoj
                 ankoraŭ alprenas vira, ekz viro, avo, patro. Oni povus uzi 
-                -iĉ- por ĉi tiujn vortojn, sed ili havus la saman signifon.
+                -iĉ- por ĉi tiujn vortojn, sed ili havus la saman signifon.</p>
+               
                 <h2>Ipismo</h2>
                 <p>-Ip- estas markilo por neduumuloj, homoj kiu ne estas
                 iĉaj aŭ inaj. Nur uzu ĝin por homoj, ĉar oni ne povas
-                demandi al bestoj se ĝi estas neduuma.
+                demandi al bestoj se ĝi estas neduuma.</p>
+                
                 <h2>Ekzemplaj vortoj</h2>
                 <ul>
                     <li>
@@ -58,6 +63,7 @@
                         Koramikipo(j) (neduuma(j))<br>
                     </li>
                 </ul>
+
             </div>@language-menu
         </article>
         @footer

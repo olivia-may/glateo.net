@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- vortaro.php is deprecated, it would be better as a apache module.-->
 <html>
     <head>
         @head-content
@@ -7,6 +8,7 @@
         @header
         <article>
             <div id="content">
+
             <form action="vortaro.php" method="post">
                 <select name="translate-language">
                     <option value="en -> eo" <?php if (strcmp($transllang, 'en -> eo') == 0) echo 'selected="selected"';?>>English -> Esperanto</option>
@@ -54,7 +56,9 @@ if (strcmp($translword, "\0") == 0) {
 else
     echo "<p>$word</p><p>&emsp;$translword</p>";
 ?>
+
             </div>@language-menu
         </article>
+    @footer
     </body>
 </html>

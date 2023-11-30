@@ -8,9 +8,11 @@
         @header
         <article>
             <div id="content">
+
                 <h1>Parentismo</h1>
-                <p>Parentismo estas ideo por anstataŭigi la iĉajn radikojn en la Fundamento
-                 kun genro-neŭtralaj radikoj.<p>
+                <p>Parentismo estas ideo por anstataŭigi la iĉajn radikojn
+                en la Fundamento kun genro-neŭtralaj radikoj.</p>
+
                 <p>La iĉaj radikoj en 
                 <a href="https://www.akademio-de-esperanto.org/fundamento/universala_vortaro.html">La Universala Vortaro de la Fundamento</a> 
                 estas:</p>
@@ -38,31 +40,38 @@
                     <li>vidvo</li>
                     <li>viro</li>
                 </ol>
+                
                 <p>Jen la genro-neŭtralaj radikoj.
                 Oficialaj radikoj aŭ kunvortoj havas ☆ stelon.</p>
                 @parentismo-roots
-                <p>Aliaj vortoj aŭ radikoj ne estas en la Fundamento, do ili povas esti uzada
-                nekontraŭfundamente.</p>
+
+                <p>Aliaj vortoj aŭ radikoj ne estas en la Fundamento, do ili
+                povas esti uzada nekontraŭfundamente.</p>
                 
                 <h2>Ge</h2>
-                <p>La prefikso ge- estas uzata por pluralaj radikoj por marki ke la grupo estas
-                 el multaj genroj.</p>
+                <p>La prefikso ge- estas uzata por pluralaj radikoj por marki
+                ke la grupo estas el multaj genroj.</p>
                 <ul>
                     <li>
-                        geparentoj - montri ke multaj parentoj el almenaŭ du genroj<br>
+                        geparentoj - montri ke multaj parentoj el almenaŭ
+                        du genroj<br>
                         parentoj - multaj parentoj (ne montras genron)<br>
                     </li>
                     <li>
-                        gesahodoj - montri ke multaj sahodoj el almenaŭ du genroj<br>
+                        gesahodoj - montri ke multaj sahodoj el almenaŭ du
+                        genroj<br>
                         sahodoj - multaj sahodoj (ne montras genron)<br>
                     </li>
                 </ul>
                 
                 <h2>Ekzemple jen frazoj</h2>
-                <p>Sen <a href="riismo">riismo</a>, <a href="icxismo-kaj-ipismo">iĉismo</a>, aŭ parentismo:</p>
+                <p>Sen
+                <a href="riismo">riismo</a>, <a href="icxismo-kaj-ipismo">iĉismo</a>
+                , aŭ parentismo:</p>
                 @parentismo-patrismo-example
                 <p>Kun riismo, iĉismo, kaj parentismo:</p>
                 @parentismo-example
+
             </div>@language-menu
         </article>
         @footer

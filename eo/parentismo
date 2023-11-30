@@ -40,30 +40,7 @@
                 </ol>
                 <p>Jen la genro-neŭtralaj radikoj.
                 Oficialaj radikoj aŭ kunvortoj havas ☆ stelon.</p>
-                <ol>
-                    <li>abado - abato</li>
-                    <li>avuo - avo</li>
-                    <li>☆ petolinfano - bubo</li>
-                    <li>eŝo - edzo</li>
-                    <li>grofo - grafo</li>
-                    <li>fianceo - fianĉo</li>
-                    <li>fizo - filo</li>
-                    <li>sahodo - frato</li>
-                    <li>neeŝo - fraŭlo</li>
-                    <li>kido - knabo</li>
-                    <li>kuzeno - kuzo</li>
-                    <li>monĥo - monaĥo</li>
-                    <li>nepoto - nepo</li>
-                    <li>nievo - nevo</li>
-                    <li>ontio - onklo</li>
-                    <li>parento - patro</li>
-                    <li>prenso - princo</li>
-                    <li>rejĝo - reĝo</li>
-                    <li>duĉo - duko</li>
-                    <li>sioro -sinjoro</li>
-                    <li>viduo - vidvo</li>
-                    <li>☆ adolto, ☆ plenkreskulo, ☆ homo - viro</li>
-                </ol>
+                @parentismo-roots
                 <p>Aliaj vortoj aŭ radikoj ne estas en la Fundamento, do ili povas esti uzada
                 nekontraŭfundamente.</p>
                 
@@ -83,35 +60,9 @@
                 
                 <h2>Ekzemple jen frazoj</h2>
                 <p>Sen <a href="riismo">riismo</a>, <a href="icxismo-kaj-ipismo">iĉismo</a>, aŭ parentismo:</p>
-                <ol>
-                    <li>
-                        Li estas mia patro.<br>
-                        Ŝi estas mia patrino.<br>
-                        Tiu estas mia (?)patro.<br>
-                    </li>
-                    <li>
-                        Mi havas tri knabojn.<br>
-                        Mi havas tri knabinojn.<br>
-                        Mi havas tri geknabojn.<br>
-                    </li>
-                    <li>
-                        Unu kuzo kaj unu kuzino estas du gekuzoj.
-                    </li>
-                </ol>
+                @parentismo-patrismo-example
                 <p>Kun riismo, iĉismo, kaj parentismo:</p>
-                <ol>
-                    <li>
-                        Li estas mia parento.<br>
-                        Ŝi estas mia parento.<br>
-                        Ri estas mia parento.<br>
-                    </li>
-                    <li>
-                        Mi havas tri kidojn.<br>
-                    </li>
-                    <li>
-                        Unu kuzeniĉo kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
-                    </li>
-                </ol>
+                @parentismo-example
             </div>@language-menu
         </article>
         @footer

@@ -40,30 +40,7 @@
                 </ol>
                 <p>Gender-nonspecific alternatives to these roots.
                 Official roots or roots made from official roots are marked with a star ☆.</p>
-                <ol>
-                    <li>abado - abato</li>
-                    <li>avuo - avo</li>
-                    <li>☆ petolinfano - bubo</li>
-                    <li>eŝo - edzo</li>
-                    <li>grofo - grafo</li>
-                    <li>fianceo - fianĉo</li>
-                    <li>fizo - filo</li>
-                    <li>sahodo - frato</li>
-                    <li>neeŝo - fraŭlo</li>
-                    <li>kido - knabo</li>
-                    <li>kuzeno - kuzo</li>
-                    <li>monĥo - monaĥo</li>
-                    <li>nepoto - nepo</li>
-                    <li>nievo - nevo</li>
-                    <li>ontio - onklo</li>
-                    <li>parento - patro</li>
-                    <li>prenso - princo</li>
-                    <li>rejĝo - reĝo</li>
-                    <li>duĉo - duko</li>
-                    <li>sioro -sinjoro</li>
-                    <li>viduo - vidvo</li>
-                    <li>☆ adolto, ☆ plenkreskulo, ☆ homo - viro</li>
-                </ol>
+                @parentismo-roots
                 <p>All other words are not defined in the Fundamento, therefore they
                 can be used gender-neutrally without being kontraŭfundamenta.</p>
                 <h2>Ge</h2>
@@ -81,35 +58,9 @@
                 </ul>
                 <h2>Example sentences</h2>
                 <p>Without <a href="riismo">riismo</a>, <a = href="icxismo-kaj-ipismo">iĉismo</a>, or parentismo:</p>
-                <ol>
-                    <li>
-                        Li estas mia patro.<br>
-                        Ŝi estas mia patrino.<br>
-                        Tiu estas mia (?)patro.<br>
-                    </li>
-                    <li>
-                        Mi havas tri knabojn.<br>
-                        Mi havas tri knabinojn.<br>
-                        Mi havas tri geknabojn.<br>
-                    </li>
-                    <li>
-                        Unu kuzo kaj unu kuzino estas du gekuzoj.
-                    </li>
-                </ol>
+                @parentismo-patrismo-example
                 <p>With riismo and parentismo:</p>
-                <ol>
-                    <li>
-                        Li estas mia parento.<br>
-                        Ŝi estas mia parento.<br>
-                        Ri estas mia parento.<br>
-                    </li>
-                    <li>
-                        Mi havas tri kidojn.<br>
-                    </li>
-                    <li>
-                        Unu kuzeniĉo kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
-                    </li>
-                </ol>
+                @parentismo-example
             </div>@language-menu
         </article>
         @footer

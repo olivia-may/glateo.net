@@ -17,17 +17,7 @@
                 <p>Ri is used more with younger and LGBT Esperantists. It is
                 becoming more recognized and more accepted as a pronoun.</p>
                 <h2>Example sentences</h2>
-                <ul>
-                    <li>Mi ne konas la genron de tiu homo, do mi uzas la pronomon
-                    "ri" por ri.</li>
-                    <li>Ri estas neduumulo, ri uzas la pronomon "ri".</li>
-                    <li>Se vi vidus homon, diru saluton al ri.</li>
-                    <li>Ri estas mia patro kaj ri estas mia patrino.</li>
-                    <li>Riaj kukoj estas bongustaj.</li>
-                    <li>Ĉu vi vidas rin?</li>
-                    <li>Mi vidas riajn katojn kaj hundojn.</li>
-                    <li>Vi vidas rian domon.</li>
-                </ul>
+                @riismo-example
             </div>@language-menu
         </article>
         @footer

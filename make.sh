@@ -2,6 +2,7 @@
 
 glateo_files=(
     '.htaccess'
+    'pride-flag.ico'
     'reset.css'
     'retpagaro.css'
 )
@@ -15,9 +16,6 @@ html_files=(
     'rimedoj'
     'vortaro.php'
 )
-binary_files=(
-    'pride-flag.ico'
-)
 
 source_dir=$(pwd)
 
@@ -26,7 +24,7 @@ mkdir -p $source_dir/glateo.net
 mkdir -p $source_dir/glateo.net/eo
 mkdir -p $source_dir/glateo.net/en
 
-cp ${glateo_files[*]} ${binary_files[*]} $source_dir/glateo.net/
+cp ${glateo_files[*]} $source_dir/glateo.net/
 cd $source_dir/eo/
 cp ${html_files[*]} $source_dir/glateo.net/eo/
 cd $source_dir/en/
@@ -36,7 +34,7 @@ cp ${html_files[*]} $source_dir/glateo.net/en/
 function replace_keywords() {
 
     ../../src/rpl '@head-content' '''<meta charset="UTF-8">
-        <link rel="icon" href="pride-flag.ico">
+        <link rel="icon" href="../pride-flag.ico">
         <link rel="stylesheet" href="../reset.css">
         <link rel="stylesheet" href="../retpagaro.css">''' $1
     ../../src/rpl '@language-menu' '''<div id="language-menu">

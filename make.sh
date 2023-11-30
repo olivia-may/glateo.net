@@ -32,28 +32,36 @@ cp ${html_files[*]} $source_dir/glateo.net/eo/
 cd $source_dir/en/
 cp ${html_files[*]} $source_dir/glateo.net/en/
 
+# for all languages of the site
+function replace_keywords() {
+
+    ../../src/rpl '@head-content' '''<meta charset="UTF-8">
+        <link rel="icon" href="pride-flag.ico">
+        <link rel="stylesheet" href="../reset.css">
+        <link rel="stylesheet" href="../retpagaro.css">''' $1
+    ../../src/rpl '@language-menu' '''<div id="language-menu">
+                <a href='''"\"../eo/$1\""'''>Esperanto</a>
+                <a href='''"\"../en/$1\""'''>English</a>
+            </div>''' $1
+}
+
 ### Esperanto
 cd $source_dir/glateo.net/eo
 for file_name in ${html_files[@]}; do
 
-    ../../src/rpl '@head-links' '''<link rel="icon" href="pride-flag.ico">
-        <link rel="stylesheet" href="../reset.css">
-        <link rel="stylesheet" href="../retpagaro.css">''' $file_name
+    replace_keywords $file_name
+
     ../../src/rpl '@header' '''<header>
             <h1><a href="hejmo">glateo.net</a></h1>
             <a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a>
-            <a href="icxismo-kaj-ipismo">I&#265ismo kaj Ipismo</a>
+            <a href="icxismo-kaj-ipismo">Iĉismo kaj Ipismo</a>
             <a href="parentismo">Parentismo</a>
             <a href="riismo">Riismo</a>
             <a href="vortaro.php">Vortaro</a>
         </header>''' $file_name
-    ../../src/rpl '@language-menu' '''<div id="language-menu">
-                <a href='''"\"../eo/$file_name\""'''>Esperanto</a>
-                <a href='''"\"../en/$file_name\""'''>English</a>
-            </div>''' $file_name
     ../../src/rpl '@footer' '''<footer>
             <a href="pri">Pri</a>
-            <a href="rimedoj">Listo de &#264iuj Rimedoj</a>
+            <a href="rimedoj">Listo de Ĉiuj Rimedoj</a>
         </footer>''' $file_name
 
 done
@@ -62,9 +70,8 @@ done
 cd $source_dir/glateo.net/en
 for file_name in ${html_files[@]}; do
 
-    ../../src/rpl '@head-links' '''<link rel="icon" href="pride-flag.ico">
-        <link rel="stylesheet" href="../reset.css">
-        <link rel="stylesheet" href="../retpagaro.css">''' $file_name
+    replace_keywords $file_name
+    
     ../../src/rpl '@header' '''<header>
             <h1><a href="hejmo">glateo.net</a></h1>
             <a href="demandoj-kaj-respondoj">Questions and Answers</a>
@@ -73,10 +80,6 @@ for file_name in ${html_files[@]}; do
             <a href="riismo">Riismo</a>
             <a href="vortaro.php">Dictionary</a>
         </header>''' $file_name
-    ../../src/rpl '@language-menu' '''<div id="language-menu">
-                <a href='''"\"../eo/$file_name\""'''>Esperanto</a>
-                <a href='''"\"../en/$file_name\""'''>English</a>
-            </div>''' $file_name
     ../../src/rpl '@footer' '''<footer>
             <a href="pri">About</a>
             <a href="rimedoj">List of all sources</a>

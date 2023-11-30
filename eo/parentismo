@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
+        @head-content
         <title>Parentismo</title>
     </head>     
     <body>
@@ -9,9 +9,9 @@
         <article>
             <div id="content">
                 <h1>Parentismo</h1>
-                <p>Parentismo estas ideo por anstatauxigi la icxajn radikojn en la Fundamento
-                 kun genro-neuxtralaj radikoj.<p>
-                <p> La icxaj radikoj en 
+                <p>Parentismo estas ideo por anstataŭigi la iĉajn radikojn en la Fundamento
+                 kun genro-neŭtralaj radikoj.<p>
+                <p>La iĉaj radikoj en 
                 <a href="https://www.akademio-de-esperanto.org/fundamento/universala_vortaro.html">La Universala Vortaro de la Fundamento</a> 
                 estas:</p>
                 <ol>
@@ -20,73 +20,73 @@
                     <li>bubo</li>
                     <li>edzo</li>
                     <li>grafo</li>
-                    <li>fian&#265o</li>
+                    <li>fianĉo</li>
                     <li>filo</li>
                     <li>frato</li>
-                    <li>frauxlo</li>
+                    <li>fraŭlo</li>
                     <li>knabo</li>
                     <li>kuzo</li>
-                    <li>monahxo</li>
+                    <li>monaĥo</li>
                     <li>nepo</li>
                     <li>nevo</li>
                     <li>onklo</li>
                     <li>patro</li>
                     <li>princo</li>
-                    <li>regxo</li>
+                    <li>reĝo</li>
                     <li>duko</li>
                     <li>sinjoro</li>
                     <li>vidvo</li>
                     <li>viro</li>
                 </ol>
-                <p>Jen la genro-neuxtralaj radikoj.
-                Oficialaj radikoj aux kunvortoj havas &#9734 stelon.</p>
+                <p>Jen la genro-neŭtralaj radikoj.
+                Oficialaj radikoj aŭ kunvortoj havas ☆ stelon.</p>
                 <ol>
-                    <li>Abado - abato</li>
-                    <li>Avuo - avo</li>
-                    <li>&#9734 petolinfano - bubo</li>
-                    <li>esxo - edzo</li>
+                    <li>abado - abato</li>
+                    <li>avuo - avo</li>
+                    <li>☆ petolinfano - bubo</li>
+                    <li>eŝo - edzo</li>
                     <li>grofo - grafo</li>
-                    <li>fianceo - fian&#265o</li>
+                    <li>fianceo - fianĉo</li>
                     <li>fizo - filo</li>
                     <li>sahodo - frato</li>
-                    <li>neesxo - frauxlo</li>
+                    <li>neeŝo - fraŭlo</li>
                     <li>kido - knabo</li>
                     <li>kuzeno - kuzo</li>
-                    <li>monhxo - monahxo</li>
+                    <li>monĥo - monaĥo</li>
                     <li>nepoto - nepo</li>
                     <li>nievo - nevo</li>
                     <li>ontio - onklo</li>
                     <li>parento - patro</li>
                     <li>prenso - princo</li>
-                    <li>rejgxo - regxo</li>
-                    <li>du&#265o - duko</li>
+                    <li>rejĝo - reĝo</li>
+                    <li>duĉo - duko</li>
                     <li>sioro -sinjoro</li>
                     <li>viduo - vidvo</li>
-                    <li>&#9734 adolto / &#9734 homo - viro</li>
+                    <li>☆ adolto, ☆ plenkreskulo, ☆ homo - viro</li>
                 </ol>
-                <p>Aliaj vortoj aux radikoj ne estas en la Fundamento, do ili povas esti uzada
-                nekontrauxfundamente.</p>
+                <p>Aliaj vortoj aŭ radikoj ne estas en la Fundamento, do ili povas esti uzada
+                nekontraŭfundamente.</p>
                 
                 <h2>Ge</h2>
                 <p>La prefikso ge- estas uzata por pluralaj radikoj por marki ke la grupo estas
                  el multaj genroj.</p>
                 <ul>
                     <li>
-                        geparentoj - montri ke multaj parentoj el almenaux du genroj<br>
+                        geparentoj - montri ke multaj parentoj el almenaŭ du genroj<br>
                         parentoj - multaj parentoj (ne montras genron)<br>
                     </li>
                     <li>
-                        gesahodoj - montri ke multaj sahodoj el almenaux du genroj<br>
+                        gesahodoj - montri ke multaj sahodoj el almenaŭ du genroj<br>
                         sahodoj - multaj sahodoj (ne montras genron)<br>
                     </li>
                 </ul>
                 
                 <h2>Ekzemple jen frazoj</h2>
-                <p>Sen <a href="riismo.php">riismo</a>, <a href="icxismo-kaj-ipismo.php">i&#265ismo</a>, aux parentismo:</p>
+                <p>Sen <a href="riismo">riismo</a>, <a href="icxismo-kaj-ipismo">iĉismo</a>, aŭ parentismo:</p>
                 <ol>
                     <li>
                         Li estas mia patro.<br>
-                        Sxi estas mia patrino.<br>
+                        Ŝi estas mia patrino.<br>
                         Tiu estas mia (?)patro.<br>
                     </li>
                     <li>
@@ -98,18 +98,18 @@
                         Unu kuzo kaj unu kuzino estas du gekuzoj.
                     </li>
                 </ol>
-                <p>Kun riismo, i&#265ismo, kaj parentismo:</p>
+                <p>Kun riismo, iĉismo, kaj parentismo:</p>
                 <ol>
                     <li>
                         Li estas mia parento.<br>
-                        Sxi estas mia parento.<br>
+                        Ŝi estas mia parento.<br>
                         Ri estas mia parento.<br>
                     </li>
                     <li>
                         Mi havas tri kidojn.<br>
                     </li>
                     <li>
-                        Unu kuzeni&#265o kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
+                        Unu kuzeniĉo kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
                     </li>
                 </ol>
             </div>@language-menu

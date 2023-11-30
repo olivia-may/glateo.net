@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
-        <title>Pri &#265i-tiu retpagaro</title>
+        @head-content
+        <title>Pri ĉi-tiu retpagaro</title>
     </head>     
     <body>
         @header

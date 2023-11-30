@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
+        @head-content
         <title>Demandoj kaj Respondoj</title>
     </head>
     <body>
@@ -12,17 +12,17 @@
                 <ul>
                     <li><h2>D. Kial parentismo kaj nek j-sistemo nek alia?</h2>
                     <p>R. La kreinto de j-sistemo, Markos Kramer, <a href="https://web.archive.org/web/20210211083523/https://lingvakritiko.com/2021/01/06/seksneutralaj-parencovortoj-rezultoj-de-opinisondo/">
-                    forlasis gxin.</a> Ri uzas aliajn sistemojn. 
+                    forlasis ĝin.</a> Ri uzas aliajn sistemojn. 
                     (Transir-faciliga) parentismo estas pli konata ol aliaj
                     kaj facilus por learnataj Esperantistoj por lerni</p></li>
                     <li><h2>D. Kial riismo kaj ne &#285iismo?</h2>
                     <p>R. Riismaj homoj estas pli multaj. Kun &#285iismo iame estas
-                    malfacila scii ke oni babilas pri objecto aux homo. 
-                    Riismo estas preferata laux GLAT-aj Esperantistoj.</p>
+                    malfacila scii ke oni babilas pri objecto aŭ homo. 
+                    Riismo estas preferata laŭ GLAT-aj Esperantistoj.</p>
                 </ul>
                 <h2>Klarigi</h2>
-                <p>Cxi tiu retpagaro uzas la vorton sekso kiel biologia sekso kaj la vorton 
-                genro kiel la mensa sento pri iu, por klarigxi al transgenruloj.</p>
+                <p>Ĉi tiu retpagaro uzas la vorton sekso kiel biologia sekso kaj la vorton 
+                genro kiel la mensa sento pri iu, por klariĝi al transgenruloj.</p>
             </div>@language-menu
         </article>
         @footer

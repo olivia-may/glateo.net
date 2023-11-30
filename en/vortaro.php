@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
+        @head-content
         <title>Vortaro</title>
     <body>
         @header
@@ -28,7 +28,7 @@ if (strcmp($transllang, 'en -> eo') == 0) {
     else if (strcmp($word, "woman") == 0)
         $translword = 'adoltino, plenkreskulino (adult woman); homino, personino; virino';
     else if (strcmp($word, "man") == 0)
-        $translword = 'adolti&#265o, plenkreskuli&#265o (adult man); homi&#265o, personi&#265o; viro';
+        $translword = 'adoltiĉo, plenkreskuliĉo (adult man); homiĉo, personiĉo; viro';
     else if (strcmp($word, "non binary") == 0 || strcmp($word, "non-binary") == 0
         || strcmp($word, "nonbinary") == 0 || strcmp($word, 
         "non binary person") == 0 || strcmp($word, "non-binary person") == 0

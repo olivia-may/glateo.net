@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
+        @head-content
         <title>Riismo</title>
     </head>
     <body>
@@ -10,11 +10,11 @@
             <div id="content">
                 <h1>Riismo</h1>
                 <p>Riismo estas ideo por neprecizogenra tripersona
-                unuopa pronomo "Ri". Oni povas uzi gxin por ne devus supozi genron de iu.
+                unuopa pronomo "Ri". Oni povas uzi ĝin por ne devus supozi genron de iu.
                  Por mencii iun, kiu ne volas sian genron esti supozata. Kiam oni ne konas
-                 ies genron. Ecx se vi ne sxatas uzi genratajn pronomojn</p>
-                <p>Plej da junaj GLAT-aj Esperantisoj uzas la pronomon ri. Gxi estas
-                plej konigxi kaj akceptigxi.</p>
+                 ies genron. Eĉ se vi ne ŝatas uzi genratajn pronomojn</p>
+                <p>Plej da junaj GLAT-aj Esperantisoj uzas la pronomon ri. Ĝi estas
+                plej koniĝi kaj akceptiĝi.</p>
                 <h2>Exzemplaj Frazoj</h2>
                 <ul>
                     <li>Mi ne konas la genron de tiu homo, do mi uzas la pronomon
@@ -23,7 +23,7 @@
                     <li>Se vi vidus homon, diru saluton al ri.</li>
                     <li>Ri estas mia patro kaj ri estas mia patrino.</li>
                     <li>Riaj kukoj estas bongustaj.</li>
-                    <li>Cxu vi vidas rin?</li>
+                    <li>Ĉu vi vidas rin?</li>
                     <li>Mi vidas riajn katojn kaj hundojn.</li>
                     <li>Vi vidas rian domon.</li>
                 </ul>

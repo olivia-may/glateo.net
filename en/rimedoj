@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
+        @head-content
         <title>Rimedoj</title>
     </head>
     <body>
@@ -20,7 +20,7 @@
                     <li><a href="https://www.akademio-de-esperanto.org/fundamento/universala_vortaro.html">
                     La Universala Vortaro de la Fundamento</a></li>
                     <li><a href="http://www.pvv.org/~ulflunde/Eo/icxismo.html">
-                    I&#265ismo de Ulf Lunde de pvv.org</a></li>
+                    Iĉismo de Ulf Lunde de pvv.org</a></li>
                     <li><a href="https://web.archive.org/web/20060924123828/http://www.rano.org/riismo2.html">
                     Riisma Manifesto</a></li>
                     <li><a href="https://lingvakritiko.com/2014/10/16/esperanto-kaj-sekso/">

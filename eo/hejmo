@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
+        @head-content
         <title>GLAT-a Esperanto</title>
     </head>
     <body>
@@ -10,21 +10,21 @@
             <div id='content'>
                 <h1>Bonvenon al GLAT-a Esperanto!</h1>
                 <p>GLAT-a Esperanto mi nomas la dialekton ke GLAT-aj Esperantistoj uzas. 
-                Cxi-tiun retpagaro povas helpi onin por lerni novajn neoficialajn vortojn. Se
-                 vi estas Esperantisto, vi povus uzi cxi-tiun retpagaron por helpi vin grandigi
+                Ĉi-tiun retpagaro povas helpi onin por lerni novajn neoficialajn vortojn. Se
+                 vi estas Esperantisto, vi povus uzi ĉi-tiun retpagaron por helpi vin grandigi
                  viajn konvortojn kaj paroli Esperanton neseksisme.</p>
-                <p>Cxi-tiun retpagaro estas verko nekompleta, do vi povus trovi malgrandajn pagxojn aux nekompletajn funkciojn.</p>
+                <p>Ĉi-tiun retpagaro estas verko nekompleta, do vi povus trovi malgrandajn paĝojn aŭ nekompletajn funkciojn.</p>
                 <ul>
                     <li><a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a> - Demandoj kaj respondoj por la -ismojn mi elektas.</li>
-                    <li><a href="icxismo-kaj-ipismo">I&#265ismo kaj Ipismo</a> -
-                    Lernu icxismon kaj ipismon, la genraj/seksaj sufiksoj esti uzi en Esperanto.</li>
-                    <li><a href="rimedoj">Listo de &#264iuj Rimedoj</a> - Listoj de cxiuj rimedoj el
+                    <li><a href="iĉismo-kaj-ipismo">Iĉismo kaj Ipismo</a> -
+                    Lernu iĉismon kaj ipismon, la genraj/seksaj sufiksoj esti uzi en Esperanto.</li>
+                    <li><a href="rimedoj">Listo de &#264iuj Rimedoj</a> - Listoj de ĉiuj rimedoj el
                 la retpagaro, kaj plu.</li>
                     <li><a href="parentismo">Parentismo</a> - Lernu parentismon, propono por
-                anstatauxigi la radikojn icxajn kun genraj neuxtralaj radikoj.</li>
-                    <li><a href="riismo">Riismo</a> - Lernu riismon, genra neuxtrala tripersona 
+                anstataŭigi la radikojn iĉajn kun genraj neŭtralaj radikoj.</li>
+                    <li><a href="riismo">Riismo</a> - Lernu riismon, genra neŭtrala tripersona 
                 sola pronomo, "ri".</li>
-                    <li><a href="vortaro.php">Vortaro (ne finata)</a> - La vortaro de la retpagaro, ne finata.</li>
+                    <li><a href="vortaro.php">Vortaro</a> - La vortaro de la retpagaro, ne finata.</li>
                 </ul>
             </div>@language-menu
         </article>

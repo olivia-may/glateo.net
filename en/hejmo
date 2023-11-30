@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
+        @head-content
         <title>GLAT-a Esperanto</title>
     </head>
     <body>
@@ -18,10 +18,10 @@
                 <ul>
                     <li><a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a> - Questions and
                     Answers for why I chose the -ismoj I did.</li>
-                    <li><a href="icxismo-kaj-ipismo">I&#265ismo kaj Ipismo</a> -
-                    Learn about i&#265ismo and ipismo, the gender/sex marker
+                    <li><a href="icxismo-kaj-ipismo">Iĉismo kaj Ipismo</a> -
+                    Learn about iĉismo and ipismo, the gender/sex marker
                     symmetry proposed to be used in Esperanto.</li>
-                    <li><a href="rimedoj">Listo de &#264iuj Rimedoj</a> - List of
+                    <li><a href="rimedoj">Listo de Ĉiuj Rimedoj</a> - List of
                     all resources used for the information on this website, and
                     a few extra resources for the curious.</li>
                     <li><a href="parentismo">Parentismo</a> - Learn about parentismo,
@@ -29,7 +29,7 @@
                     gender-neutral roots.</li>
                     <li><a href="riismo">Riismo</a> - Riismo, a gender neutral
                     third person singular pronoun "ri".</li>
-                    <li><a href="vortaro.php">Vortaro (ne finata)</a> - The dictionary of this website (not finished)</li>
+                    <li><a href="vortaro.php">Vortaro</a> - The dictionary of this website (not finished)</li>
                 </ul>
             </div>@language-menu
         </article>

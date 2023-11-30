@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        @head-links
+        @head-content
         <title>Parentismo</title>
     </head>     
     <body>
@@ -20,7 +20,7 @@
                     <li>bubo - wicked boy</li>
                     <li>edzo - husband</li>
                     <li>grafo - count</li>
-                    <li>fian&#265o - fianc&#233</li>
+                    <li>fianĉo - fiancé</li>
                     <li>filo - son </li>
                     <li>frato - brother</li>
                     <li>frauxlo - bachelor</li>
@@ -39,14 +39,14 @@
                     <li>viro - man</li>
                 </ol>
                 <p>Gender-nonspecific alternatives to these roots.
-                Official roots or roots made from official roots are marked with a star &#9734.</p>
+                Official roots or roots made from official roots are marked with a star ☆.</p>
                 <ol>
-                    <li>Abado - abato</li>
-                    <li>Avuo - avo</li>
-                    <li>&#9734 petolinfano - bubo</li>
+                    <li>abado - abato</li>
+                    <li>avuo - avo</li>
+                    <li>☆ petolinfano - bubo</li>
                     <li>esxo - edzo</li>
                     <li>grofo - grafo</li>
-                    <li>fianceo - fian&#265o</li>
+                    <li>fianceo - fianĉo</li>
                     <li>fizo - filo</li>
                     <li>sahodo - frato</li>
                     <li>neesxo - frauxlo</li>
@@ -59,10 +59,10 @@
                     <li>parento - patro</li>
                     <li>prenso - princo</li>
                     <li>rejgxo - regxo</li>
-                    <li>du&#265o - duko</li>
+                    <li>duĉo - duko</li>
                     <li>sioro -sinjoro</li>
                     <li>viduo - vidvo</li>
-                    <li>&#9734 adolto / &#9734 homo - viro</li>
+                    <li>☆ adolto, ☆ plenkreskulo, ☆ homo - viro</li>
                 </ol>
                 <p>All other words are not defined in the Fundamento, therefore they
                 can be used gender-neutrally without being kontrauxfundamenta.</p>
@@ -80,7 +80,7 @@
                     </li>
                 </ul>
                 <h2>Example sentences</h2>
-                <p>Without <a href="riismo.php">riismo</a>, <a = href="icxismo-kaj-ipismo.php">i&#265ismo</a>, or parentismo:</p>
+                <p>Without <a href="riismo.php">riismo</a>, <a = href="icxismo-kaj-ipismo.php">iĉismo</a>, or parentismo:</p>
                 <ol>
                     <li>
                         Li estas mia patro.<br>
@@ -107,7 +107,7 @@
                         Mi havas tri kidojn.<br>
                     </li>
                     <li>
-                        Unu kuzeni&#265o kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
+                        Unu kuzeniĉo kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
                     </li>
                 </ol>
             </div>@language-menu

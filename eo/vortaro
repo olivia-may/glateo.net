@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @head-content
+        <title>Vortaro</title>
+    <body>
+        @header
+        <article>
+            <div id="content">
+
+            <form action="vortaro" method="post">
+                <select name="translate-language">
+                    <option value="eo_to_en" ?vrtr_eo_to_en_selected>Esperanto -> English</option>
+                    <option value="en_to_eo" ?vrtr_en_to_eo_selected>English -> Esperanto</option>
+                </select>
+                <br>
+                <input name="word" id="word" type="text">
+                <button type="submit">Traduki</button>
+            </form>
+            ?vrtr_definition
+
+            </div>@language-menu
+        </article>
+        @footer
+    </body>
+</html>

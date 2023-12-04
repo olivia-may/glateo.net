@@ -14,7 +14,7 @@ html_files=(
     'pri'
     'riismo'
     'rimedoj'
-    'vortaro.php'
+    'vortaro'
 )
 
 source_dir=$(pwd)
@@ -147,7 +147,7 @@ for file_name in ${html_files[@]}; do
             <a href="icxismo-kaj-ipismo">Iĉismo kaj Ipismo</a>
             <a href="parentismo">Parentismo</a>
             <a href="riismo">Riismo</a>
-            <a href="vortaro.php">Vortaro</a>
+            <a href="vortaro">Vortaro</a>
         </header>''' $file_name
 
     ../../src/rpl '@footer' '''<footer>
@@ -169,7 +169,7 @@ for file_name in ${html_files[@]}; do
             <a href="icxismo-kaj-ipismo">I&#265ismo and Ipismo</a>
             <a href="parentismo">Parentismo</a>
             <a href="riismo">Riismo</a>
-            <a href="vortaro.php">Dictionary</a>
+            <a href="vortaro">Dictionary</a>
         </header>''' $file_name
 
     ../../src/rpl '@footer' '''<footer>

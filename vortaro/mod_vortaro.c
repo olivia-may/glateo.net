@@ -42,6 +42,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 #include "httpd.h"
 #include "http_config.h"
@@ -359,13 +360,17 @@ static void vortaro_register_hooks(apr_pool_t *p)
 {
     ap_hook_handler(vortaro_handler, NULL, NULL, APR_HOOK_MIDDLE);
 
-    // TODO: change `html/` to `glateo.net/`
-    if (!eo_vortaro_page) {
-        eo_vortaro_page = get_file_contents("/var/www/html/eo/vortaro", p);
+    if (!access("/var/www/glateo.net/eo/vortaro", F_OK)) {
+        eo_vortaro_page = get_file_contents("/var/www/glateo.net/eo/vortaro", p);
     }
-    if (!en_vortaro_page) {
-        en_vortaro_page = get_file_contents("/var/www/html/en/vortaro", p);
+    else
+        fputs("Could not access /var/www/glateo.net/eo/vortaro/", stderr);
+
+    if (!access("/var/www/glateo.net/en/vortaro", F_OK)) {
+        en_vortaro_page = get_file_contents("/var/www/glateo.net/en/vortaro", p);
     }
+    else
+        fputs("Could not access /var/www/glateo.net/en/vortaro/", stderr);
 }
 
 /* Dispatch list for API hooks */

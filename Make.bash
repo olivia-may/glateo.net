@@ -212,22 +212,40 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
 
 elif [[ "$1" == "install" ]]; then
 
-    cp -r $build_dir/etc $build_dir/usr $build_dir/var /
+    cp -rf $build_dir/etc $build_dir/usr $build_dir/var /
+    
+    ln -sf /etc/apache2/mods-available/vortaro.conf \
+        /etc/apache2/mods-enabled/vortaro.conf
+    
+    ln -sf /etc/apache2/mods-available/vortaro.load \
+        /etc/apache2/mods-enabled/vortaro.load
+    
+    ln -sf /etc/apache2/sites-available/glateo.conf \
+        /etc/apache2/sites-enabled/glateo.conf
+
+    service apache2 restart
 
 elif [[ "$1" == "uninstall" ]]; then
     
     rm -f \
         /etc/apache2/mods-available/vortaro.conf \
         /etc/apache2/mods-available/vortaro.load \
+        /etc/apache2/mods-enabled/vortaro.conf \
+        /etc/apache2/mods-enabled/vortaro.load \
         /etc/apache2/sites-available/glateo.conf \
+        /etc/apache2/sites-enabled/glateo.conf \
         /usr/lib/apache2/modules/mod_vortaro.so
+
     rm -rf /var/www/glateo.net/
 
+    service apache2 restart
+    
 elif [[ "$1" == "clean" ]]; then
 
     rm -rf $build_dir
     make -C rpl/ clean
     make -C vortaro/ clean
+
 fi
 
 exit

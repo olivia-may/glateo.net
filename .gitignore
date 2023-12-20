@@ -1,4 +1,6 @@
-glateo.net/
-src/rpl
-src/vortaro
-src/testfile
+build/
+vortaro/.libs/
+vortaro/mod_vortaro.la
+vortaro/mod_vortaro.lo
+vortaro/mod_vortaro.o
+vortaro/mod_vortaro.slo

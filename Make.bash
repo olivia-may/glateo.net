@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+#
+# Usage:
+# ./Make.bash                           Build website
+# ./Make.bash build
+# ./Make.bash compile
+# ./Make.bash install                   Install to this computer
+# ./Make.bash uninstall                 Uninstall from this computer
+# ./Make.bash clean                     Clean up this directory
 
 glateo_files=(
     '.htaccess'
@@ -17,33 +25,26 @@ html_files=(
     'vortaro'
 )
 
-source_dir=$(pwd)
-
-rm -rf glateo.net/
-mkdir -p $source_dir/glateo.net
-mkdir -p $source_dir/glateo.net/eo
-mkdir -p $source_dir/glateo.net/en
-
-cp ${glateo_files[*]} $source_dir/glateo.net/
-cd $source_dir/eo/
-cp ${html_files[*]} $source_dir/glateo.net/eo/
-cd $source_dir/en/
-cp ${html_files[*]} $source_dir/glateo.net/en/
+source_dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
+build_dir=$source_dir/build
 
 # for all languages of the site
 function replace_keywords() {
 
-    ../../src/rpl '@head-content' '''<meta charset="UTF-8">
+    $source_dir/rpl/rpl '@head-content' \
+     '''<meta charset="UTF-8">
         <link rel="icon" href="../pride-flag.ico">
         <link rel="stylesheet" href="../reset.css">
         <link rel="stylesheet" href="../retpagaro.css">''' $1
 
-    ../../src/rpl '@language-menu' '''<div id="language-menu">
+    $source_dir/rpl/rpl '@language-menu' \
+         '''<div id="language-menu">
                 <a href='''"\"../eo/$1\""'''>Esperanto</a>
                 <a href='''"\"../en/$1\""'''>English</a>
             </div>''' $1
             
-    ../../src/rpl '@resources' '''<ul>
+    $source_dir/rpl/rpl '@resources' \
+         '''<ul>
                 <li><a href="https://tersiso.net/">
                 TerSISO</a></li>
                 <li><a href="https://lingvakritiko.com/2019/11/11/survoje-al-sekse-neutralaj-kaj-egalecaj-esprimoj-komparo-inter-la-j-sistemo-kaj-parentismo/">
@@ -63,11 +64,13 @@ function replace_keywords() {
                 Markos Kramer de Lingva Kritiko</a></li>
             </ul>''' $1
 
-    ../../src/rpl '@extra-resources' '''<ul>
+    $source_dir/rpl/rpl '@extra-resources' \
+             '''<ul>
                     <li><a href="https://www.youtube.com/watch?v=ZyxDjiT3lfw">Ri Liberas</a></li>
                 </ul>''' $1
 
-    ../../src/rpl '@parentismo-roots' '''<ol>
+    $source_dir/rpl/rpl '@parentismo-roots' \
+             '''<ol>
                     <li>abado - abato</li>
                     <li>avuo - avo</li>
                     <li>☆ petolinfano - bubo</li>
@@ -92,7 +95,8 @@ function replace_keywords() {
                     <li>☆ adolto, ☆ plenkreskulo, ☆ homo - viro</li>
                 </ol>''' $1
 
-    ../../src/rpl '@parentismo-patrismo-example' '''<ol>
+    $source_dir/rpl/rpl '@parentismo-patrismo-example' \
+             '''<ol>
                     <li>
                         Li estas mia patro.<br>
                         Ŝi estas mia patrino.<br>
@@ -108,7 +112,8 @@ function replace_keywords() {
                     </li>
                 </ol>''' $1
 
-    ../../src/rpl '@parentismo-example' '''<ol>
+    $source_dir/rpl/rpl '@parentismo-example' \
+             '''<ol>
                     <li>
                         Li estas mia parento.<br>
                         Ŝi estas mia parento.<br>
@@ -122,7 +127,8 @@ function replace_keywords() {
                     </li>
                 </ol>''' $1
     
-    ../../src/rpl '@riismo-example' '''<ul>
+    $source_dir/rpl/rpl '@riismo-example' \
+             '''<ul>
                     <li>Mi ne konas la genron de tiu homo, do mi uzas la pronomon
                     "ri" por ri.</li>
                     <li>Ri estas neduumulo, ri uzas la pronomon "ri".</li>
@@ -135,46 +141,93 @@ function replace_keywords() {
                 </ul>''' $1
 }
 
-### Esperanto
-cd $source_dir/glateo.net/eo
-for file_name in ${html_files[@]}; do
+if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
 
-    replace_keywords $file_name
-
-    ../../src/rpl '@header' '''<header>
-            <h1><a href="hejmo">glateo.net</a></h1>
-            <a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a>
-            <a href="icxismo-kaj-ipismo">Iĉismo kaj Ipismo</a>
-            <a href="parentismo">Parentismo</a>
-            <a href="riismo">Riismo</a>
-            <a href="vortaro">Vortaro</a>
-        </header>''' $file_name
-
-    ../../src/rpl '@footer' '''<footer>
-            <a href="pri">Pri</a>
-            <a href="rimedoj">Listo de Ĉiuj Rimedoj</a>
-        </footer>''' $file_name
-
-done
-
-### English
-cd $source_dir/glateo.net/en
-for file_name in ${html_files[@]}; do
-
-    replace_keywords $file_name
+    make -C $source_dir/rpl
+    make -C $source_dir/vortaro
     
-    ../../src/rpl '@header' '''<header>
-            <h1><a href="hejmo">glateo.net</a></h1>
-            <a href="demandoj-kaj-respondoj">Questions and Answers</a>
-            <a href="icxismo-kaj-ipismo">I&#265ismo and Ipismo</a>
-            <a href="parentismo">Parentismo</a>
-            <a href="riismo">Riismo</a>
-            <a href="vortaro">Dictionary</a>
-        </header>''' $file_name
+    rm -rf $build_dir
+    mkdir -p $build_dir/var/www/glateo.net/en/ \
+        $build_dir/var/www/glateo.net/eo/ \
+        $build_dir/etc/ \
+        $build_dir/usr/lib/apache2/modules/
 
-    ../../src/rpl '@footer' '''<footer>
-            <a href="pri">About</a>
-            <a href="rimedoj">List of all sources</a>
-        </footer>''' $file_name
+    cd $source_dir/
+    cp -r apache2/ $build_dir/etc/
+    cp ${glateo_files[*]} $build_dir/var/www/glateo.net/
+    cd $source_dir/eo/
+    cp ${html_files[*]} $build_dir/var/www/glateo.net/eo/
+    cd $source_dir/en/
+    cp ${html_files[*]} $build_dir/var/www/glateo.net/en/
+    install -m644 $source_dir/vortaro/.libs/mod_vortaro.so \
+        $build_dir/usr/lib/apache2/modules/mod_vortaro.so
 
-done
+    ### Esperanto
+    cd $build_dir/var/www/glateo.net/eo/
+    for file_name in ${html_files[@]}; do
+
+        replace_keywords $file_name
+
+        $source_dir/rpl/rpl '@header' \
+         '''<header>
+                <h1><a href="hejmo">glateo.net</a></h1>
+                <a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a>
+                <a href="icxismo-kaj-ipismo">Iĉismo kaj Ipismo</a>
+                <a href="parentismo">Parentismo</a>
+                <a href="riismo">Riismo</a>
+                <a href="vortaro">Vortaro</a>
+            </header>''' $file_name
+
+        $source_dir/rpl/rpl '@footer' \
+         '''<footer>
+                <a href="pri">Pri</a>
+                <a href="rimedoj">Listo de Ĉiuj Rimedoj</a>
+            </footer>''' $file_name
+
+    done
+
+    ### English
+    cd $build_dir/var/www/glateo.net/en/
+    for file_name in ${html_files[@]}; do
+
+        replace_keywords $file_name
+        
+        $source_dir/rpl/rpl '@header' \
+         '''<header>
+                <h1><a href="hejmo">glateo.net</a></h1>
+                <a href="demandoj-kaj-respondoj">Questions and Answers</a>
+                <a href="icxismo-kaj-ipismo">Iĉismo and Ipismo</a>
+                <a href="parentismo">Parentismo</a>
+                <a href="riismo">Riismo</a>
+                <a href="vortaro">Dictionary</a>
+            </header>''' $file_name
+
+        $source_dir/rpl/rpl '@footer' \
+         '''<footer>
+                <a href="pri">About</a>
+                <a href="rimedoj">List of all sources</a>
+            </footer>''' $file_name
+
+    done
+
+elif [[ "$1" == "install" ]]; then
+
+    cp -r $build_dir/etc $build_dir/usr $build_dir/var /
+
+elif [[ "$1" == "uninstall" ]]; then
+    
+    rm -f \
+        /etc/apache2/mods-available/vortaro.conf \
+        /etc/apache2/mods-available/vortaro.load \
+        /etc/apache2/sites-available/glateo.conf \
+        /usr/lib/apache2/modules/mod_vortaro.so
+    rm -rf /var/www/glateo.net/
+
+elif [[ "$1" == "clean" ]]; then
+
+    rm -rf $build_dir
+    make -C rpl/ clean
+    make -C vortaro/ clean
+fi
+
+exit

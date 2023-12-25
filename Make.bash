@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #
+# CC-BY-SA
+#
 # Usage:
 # ./Make.bash                           Build website
 # ./Make.bash build
@@ -7,6 +9,7 @@
 # ./Make.bash install                   Install to this computer
 # ./Make.bash uninstall                 Uninstall from this computer
 # ./Make.bash clean                     Clean up this directory
+# 
 
 glateo_files=(
     '.htaccess'

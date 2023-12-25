@@ -1,3 +1,24 @@
+/*
+**  mod_vortaro - dictionary module for glateo.net
+**  Copyright (C) 2023  Olivia May
+**
+**  This program is free software: you can redistribute it and/or modify
+**  it under the terms of the GNU General Public License as published by
+**  the Free Software Foundation, either version 3 of the License, or
+**  (at your option) any later version.
+**
+**  This program is distributed in the hope that it will be useful,
+**  but WITHOUT ANY WARRANTY; without even the implied warranty of
+**  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+**  GNU General Public License for more details.
+**
+**  You should have received a copy of the GNU General Public License
+**  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+#ifndef VORTARO_H
+#define VORTARO_H
+
 #define DICTIONARY_LEN 46
 #define EN_TO_EO_LEN 8
 
@@ -100,3 +121,5 @@ psc4b_str *search_dictionary_eo(const int to_language,
 // search from English, etc., to Esperanto
 psc4b_str *search_dictionary(const char *wl[][2], const int wordlist_len,
     const char *input_word);
+
+#endif // vortaro.h

@@ -17,6 +17,9 @@
                 <input name="word" id="word" type="text">
                 <button type="submit">Translate</button>
             </form>
+            <form action="vortaro" method="post">
+                <button type="submit">Show every definition</button>
+            </form>
             ?vrtr_definition
 
             </div>@language-menu

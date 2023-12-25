@@ -61,6 +61,8 @@ char *eo_vortaro_page = NULL;
 
 char *en_vortaro_page = NULL; 
 
+psc4b_str *every_definition = NULL;
+
 // From apache2 modguide
 typedef struct {
     char *key;
@@ -114,42 +116,51 @@ void convert_to_proper_esperanto(char *input_word) {
     }
 }
 
-char *search_dictionary_eo(const int to_language,
+// warning, will not have nullchar
+void inline vrtr_strcat(psc4b_str *dest, const psc1b_str *src) {
+   
+    for (int i = 0; i < src[0]; i++)
+        dest->str[dest->len + i] = src[1 + i];
+
+    dest->len += src[0];
+}
+
+psc4b_str *search_dictionary_eo(const int to_language,
     const char *input_word) {
 
-    int i, j;
-    char *definition;
-    int definition_len, eo2_len, to_language_len;
+    int i, j, input_word_len;
+    psc4b_str *definition;
 
-    definition = malloc(sizeof(char));
-    definition[0] = '\0';
+    definition = malloc(sizeof(int) + sizeof(char));
+    definition->str[0] = '\0';
+    definition->len = 0;
+
+    input_word_len = strlen(input_word);
 
     for (i = 0; i < DICTIONARY_LEN; i++) {
 
-        for (j = 0; j < strlen(input_word); j++) {
+        for (j = 0; j < input_word_len; j++) {
             
-            if (dictionary[i][EO1][j] == '\0') break;        
-            if (input_word[j] != dictionary[i][EO1][j]) break;        
-            if (j == strlen(input_word) - 1) {
+            if (dictionary[i][EO1][1 + j] == '\0') break;        
+            if (input_word[j] != dictionary[i][EO1][1 + j]) break;
+            if (j == input_word_len - 1) {
             
-                definition_len = strlen(definition);
-                eo2_len = strlen(dictionary[i][EO2]);
-                to_language_len = strlen(dictionary[i][to_language]);
-
-                // + 15 because "<br>&emps;" length, length of ending <br>, and
-                // null char
-                definition =
-                    realloc(definition, 
-                    (definition_len + eo2_len + to_language_len + 15)
+                // + 27 because of length of all below string literals + nullchar
+                definition = realloc(definition, sizeof(int) +
+                    (definition->len + dictionary[i][EO1][0] +
+                    dictionary[i][EO2][0] + dictionary[i][to_language][0] + 29)
                     * sizeof(char));
                 
-                strcpy(&definition[definition_len], dictionary[i][EO2]);
-                strcpy(&definition[definition_len + eo2_len], "<br>&emsp;");
-                // + 10 because "<br>%emps;" length
-                strcpy(&definition[definition_len + eo2_len + 10],
-                    dictionary[i][to_language]);
-                strcpy(&definition[definition_len + eo2_len + 10 + to_language_len],
-                    "<br>");
+                vrtr_strcat(definition, "\003<b>");
+                vrtr_strcat(definition, dictionary[i][EO1]);
+                vrtr_strcat(definition, "\006</b> (");
+                vrtr_strcat(definition, dictionary[i][EO2]);
+                vrtr_strcat(definition, "\013)<br>&emsp;"); // 11 len
+                vrtr_strcat(definition, dictionary[i][to_language]);
+                vrtr_strcat(definition, "\010<br><br>"); // 8 len
+
+                // put nullchar on the end without adding to the len
+                definition->str[definition->len] = '\0';
             }
         }
     }
@@ -157,40 +168,41 @@ char *search_dictionary_eo(const int to_language,
     return definition;
 }
 
-char *search_dictionary(const char *wl[][2], const int wordlist_len,
+psc4b_str *search_dictionary(const char *wl[][2], const int wordlist_len,
     const char *input_word) {
 
     int i, j;
-    char *definition;
-    int definition_len, from_len, to_len;
+    psc4b_str *definition;
+    int input_word_len;
 
-    definition = malloc(sizeof(char));
-    definition[0] = '\0';
+    definition = malloc(sizeof(int) + sizeof(char));
+    definition->str[0] = '\0';
+    definition->len = 0;
+
+    input_word_len = strlen(input_word);
 
     for (i = 0; i < wordlist_len; i++) {
 
-        for (j = 0; j < strlen(input_word); j++) {
+        for (j = 0; j < input_word_len; j++) {
             
-            if (input_word[j] != wl[i][FROM][j]) break;
+            if (wl[i][FROM][1 + j] == '\0') break;
+            if (input_word[j] != wl[i][FROM][1 + j]) break;
             
-            if (j == strlen(input_word) - 1) {
+            if (j == input_word_len - 1) {
             
-                definition_len = strlen(definition);
-                from_len = strlen(wl[i][FROM]);
-                to_len = strlen(wl[i][TO]);
-                
-                // + 15 because "<br>&emps;" length, length of ending <br>, and
-                // null char
+                // + 26 because of length of all below string literals + nullchar
                 definition =
-                    realloc(definition, 
-                    (definition_len + from_len + to_len + 15)
+                    realloc(definition, sizeof(int) +
+                    (definition->len + wl[i][FROM][0] + wl[i][TO][0] + 26)
                     * sizeof(char));
                 
-                strcpy(&definition[definition_len], wl[i][FROM]);
-                strcpy(&definition[definition_len + from_len], "<br>&emsp;");
-                // + 10 because "<br>%emps;" length
-                strcpy(&definition[definition_len + from_len + 10], wl[i][TO]);
-                strcpy(&definition[definition_len + from_len + 10 + to_len], "<br>");
+                vrtr_strcat(definition, "\003<b>"); // 3 len
+                vrtr_strcat(definition, wl[i][FROM]);
+                vrtr_strcat(definition, "\016</b><br>&emsp;"); // 14 len
+                vrtr_strcat(definition, wl[i][TO]);
+                vrtr_strcat(definition, "\010<br><br>"); // 8 len
+
+                definition->str[definition->len] = '\0';
             }
         }
     }
@@ -260,27 +272,28 @@ static int vortaro_handler(request_rec *r) {
 \
 while (page[i] != '\0') { \
 \
-    /* 23 len of ?vtro_xx_to_yy_selected */ \
     if (!strncmp(&page[i], \
+        /* 23 len of ?vrtr_xx_to_yy_selected */ \
         "?vrtr_eo_to_en_selected", 23)) { \
-\
-        if (!strcmp(r->method, "POST")) { \
-            if (!strcmp(kvp[1].value, "eo_to_en")) { \
-                ap_rputs("selected=\"selected\"", r); \
+        if (!strcmp(r->method, "POST")) {\
+            if (kvp->key) { \
+                if (!strcmp(kvp[1].value, "eo_to_en")) { \
+                    ap_rputs("selected=\"selected\"", r); \
+                } \
             } \
         } \
-\
         i += 23; \
     } \
     if (!strncmp(&page[i], \
         "?vrtr_en_to_eo_selected", 23)) { \
 \
-        if (!strcmp(r->method, "POST")) { \
-            if (!strcmp(kvp[1].value, "en_to_eo")) { \
-                ap_rputs("selected=\"selected\"", r); \
+        if (!strcmp(r->method, "POST")) {\
+            if (kvp->key) { \
+                if (!strcmp(kvp[1].value, "en_to_eo")) { \
+                    ap_rputs("selected=\"selected\"", r); \
+                } \
             } \
         } \
-\
         i += 23; \
     } \
 \
@@ -288,29 +301,33 @@ while (page[i] != '\0') { \
     if (!strncmp(&page[i], "?vrtr_definition", 16)) { \
 \
         if (!strcmp(r->method, "POST")) { \
-\
-            /* if "word".value is only null char (no input) */ \
-            if (!kvp[0].value[0]) \
-                break; \
-\
-            convert_to_proper_esperanto(kvp[0].value); \
-\
-            if (!strcmp(kvp[1].value, "eo_to_en")) { \
-                definition = search_dictionary_eo(EN, kvp[0].value); \
+            if (kvp->key) { \
+    \
+                /* if "word".value is not only null char (no input) */ \
+                if (kvp[0].value[0]) {\
+    \
+                    convert_to_proper_esperanto(kvp[0].value); \
+        \
+                    if (!strcmp(kvp[1].value, "eo_to_en")) { \
+                        definition = search_dictionary_eo(EN, kvp[0].value); \
+                    } \
+                    else if (!strcmp(kvp[1].value, "en_to_eo")) { \
+                        definition = search_dictionary(en_to_eo, EN_TO_EO_LEN, \
+                            kvp[0].value); \
+                    } \
+        \
+                    if (!definition->len) \
+                        ap_rputs(word_not_found_str, r); \
+                    else \
+                        ap_rputs(definition->str, r); \
+        \
+                    free(definition); \
+                } \
             } \
-            else if (!strcmp(kvp[1].value, "en_to_eo")) { \
-                definition = search_dictionary(en_to_eo, EN_TO_EO_LEN, \
-                    kvp[0].value); \
+            else { \
+                ap_rputs(every_definition->str, r); \
             } \
-\
-            if (!definition[0]) \
-                ap_rputs(word_not_found_str, r); \
-            else \
-                ap_rputs(definition, r); \
-\
-            free(definition); \
         } \
-\
         i += 16; \
     } \
 \
@@ -319,8 +336,8 @@ while (page[i] != '\0') { \
 }
 
     int language;
-    keyValuePair *kvp;
-    char *definition;
+    keyValuePair *kvp = NULL;
+    psc4b_str *definition;
     int i = 0;
 
     if (!strcmp(r->uri, "/eo/vortaro")) {
@@ -336,8 +353,9 @@ while (page[i] != '\0') { \
     
     if (!r->header_only) {
                 
-        if (!strcmp(r->method, "POST"))
+        if (!strcmp(r->method, "POST")) {
             kvp = readPost(r);
+        }
 
         switch (language) {
 
@@ -358,6 +376,9 @@ while (page[i] != '\0') { \
 // not open the files twice
 static void vortaro_register_hooks(apr_pool_t *p)
 {
+    int alloc_len = 0;
+    int i;
+    
     ap_hook_handler(vortaro_handler, NULL, NULL, APR_HOOK_MIDDLE);
 
     if (!access("/var/www/glateo.net/eo/vortaro", F_OK)) {
@@ -371,6 +392,46 @@ static void vortaro_register_hooks(apr_pool_t *p)
     }
     else
         fputs("Could not access /var/www/glateo.net/en/vortaro/", stderr);
+
+    // eo to en
+    for (i = 0; i < DICTIONARY_LEN; i++) {
+        alloc_len += dictionary[i][EO1][0] + dictionary[i][EO2][0]
+            + dictionary[i][EN][0] + 29;
+    }
+    // en to eo
+    for (i = 0; i < EN_TO_EO_LEN; i++) {
+        alloc_len += en_to_eo[i][TO][0] + en_to_eo[i][FROM][0] + 26;
+    }
+
+    // + 1 for null char
+    every_definition = (psc4b_str *)apr_palloc(p, sizeof(int) + (alloc_len + 1) *
+        sizeof(char));
+    every_definition->len = 0;
+    every_definition->str[0] = '\0';
+
+    vrtr_strcat(every_definition, "\035<h2>Esperanto -> English</h2>");
+
+    for (int i = 0; i < DICTIONARY_LEN; i++) {
+        vrtr_strcat(every_definition, "\003<b>");
+        vrtr_strcat(every_definition, dictionary[i][EO1]);
+        vrtr_strcat(every_definition, "\006</b> (");
+        vrtr_strcat(every_definition, dictionary[i][EO2]);
+        vrtr_strcat(every_definition, "\013)<br>&emsp;");
+        vrtr_strcat(every_definition, dictionary[i][EN]);
+        vrtr_strcat(every_definition, "\010<br><br>");
+    }
+
+    vrtr_strcat(every_definition, "\035<h2>English -> Esperanto</h2>");
+
+    for (int i = 0; i < EN_TO_EO_LEN; i++) {
+        vrtr_strcat(every_definition, "\003<b>");
+        vrtr_strcat(every_definition, en_to_eo[i][FROM]);
+        vrtr_strcat(every_definition, "\016</b><br>&emsp;");
+        vrtr_strcat(every_definition, en_to_eo[i][TO]);
+        vrtr_strcat(every_definition, "\010<br><br>");
+    }
+
+    every_definition->str[every_definition->len - 4] = '\0';
 }
 
 /* Dispatch list for API hooks */

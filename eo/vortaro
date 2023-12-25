@@ -17,6 +17,9 @@
                 <input name="word" id="word" type="text">
                 <button type="submit">Traduki</button>
             </form>
+            <form action="vortaro" method="post">
+                <button type="submit">Montri ĉiujn difinojn</button>
+            </form>
             ?vrtr_definition
 
             </div>@language-menu

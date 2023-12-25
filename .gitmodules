@@ -1,3 +1,6 @@
 [submodule "rpl"]
 	path = rpl
 	url = https://github.com/olivia-may/rpl
+[submodule "vortaro/pscv"]
+	path = vortaro/pscv
+	url = https://github.com/olivia-may/pscv

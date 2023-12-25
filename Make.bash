@@ -143,22 +143,18 @@ function replace_keywords() {
 
 if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
 
-    make -C $source_dir/rpl
-    make -C $source_dir/vortaro
+    make -C $source_dir/rpl/
+    make -C $source_dir/vortaro/
+    make -C $source_dir/vortaro/pscv/
     
     rm -rf $build_dir
-    mkdir -p $build_dir/var/www/glateo.net/en/ \
-        $build_dir/var/www/glateo.net/eo/ \
+    mkdir -p $build_dir/var/www/ \
         $build_dir/etc/ \
         $build_dir/usr/lib/apache2/modules/
 
     cd $source_dir/
     cp -r apache2/ $build_dir/etc/
-    cp ${glateo_files[*]} $build_dir/var/www/glateo.net/
-    cd $source_dir/eo/
-    cp ${html_files[*]} $build_dir/var/www/glateo.net/eo/
-    cd $source_dir/en/
-    cp ${html_files[*]} $build_dir/var/www/glateo.net/en/
+    cp -r glateo.net/ $build_dir/var/www/
     install -m644 $source_dir/vortaro/.libs/mod_vortaro.so \
         $build_dir/usr/lib/apache2/modules/mod_vortaro.so
 
@@ -169,20 +165,20 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
         replace_keywords $file_name
 
         $source_dir/rpl/rpl '@header' \
-         '''<header>
-                <h1><a href="hejmo">glateo.net</a></h1>
-                <a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a>
-                <a href="icxismo-kaj-ipismo">Iĉismo kaj Ipismo</a>
-                <a href="parentismo">Parentismo</a>
-                <a href="riismo">Riismo</a>
-                <a href="vortaro">Vortaro</a>
-            </header>''' $file_name
+     '''<header>
+            <h1><a href="hejmo">glateo.net</a></h1>
+            <a href="demandoj-kaj-respondoj">Demandoj kaj Respondoj</a>
+            <a href="icxismo-kaj-ipismo">Iĉismo kaj Ipismo</a>
+            <a href="parentismo">Parentismo</a>
+            <a href="riismo">Riismo</a>
+            <a href="vortaro">Vortaro</a>
+        </header>''' $file_name
 
         $source_dir/rpl/rpl '@footer' \
-         '''<footer>
-                <a href="pri">Pri</a>
-                <a href="rimedoj">Listo de Ĉiuj Rimedoj</a>
-            </footer>''' $file_name
+     '''<footer>
+            <a href="pri">Pri</a>
+            <a href="rimedoj">Listo de Ĉiuj Rimedoj</a>
+        </footer>''' $file_name
 
     done
 
@@ -245,6 +241,7 @@ elif [[ "$1" == "clean" ]]; then
     rm -rf $build_dir
     make -C rpl/ clean
     make -C vortaro/ clean
+    make -C vortaro/pscv clean
 
 fi
 

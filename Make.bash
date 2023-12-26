@@ -44,8 +44,26 @@ function replace_keywords() {
          '''<div id="language-menu">
                 <a href='''"\"../eo/$1\""'''>Esperanto</a>
                 <a href='''"\"../en/$1\""'''>English</a>
-            </div>''' $1
-            
+            </div>''' $1            
+}
+
+if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
+
+    make -C $source_dir/rpl/
+    make -C $source_dir/vortaro/
+    make -C $source_dir/vortaro/pscv/
+    
+    rm -rf $build_dir
+    mkdir -p $build_dir/var/www/ \
+        $build_dir/etc/ \
+        $build_dir/usr/lib/apache2/modules/
+
+    cd $source_dir/
+    cp -r apache2/ $build_dir/etc/
+    cp -r glateo.net/ $build_dir/var/www/
+    install -m644 $source_dir/vortaro/.libs/mod_vortaro.so \
+        $build_dir/usr/lib/apache2/modules/mod_vortaro.so
+
     $source_dir/rpl/rpl '@resources' \
          '''<ul>
                 <li><a href="https://tersiso.net/">
@@ -65,12 +83,16 @@ function replace_keywords() {
                 <li><a href="https://web.archive.org/web/20210211083523/https://lingvakritiko.com/2021/01/06/seksneutralaj-parencovortoj-rezultoj-de-opinisondo/">
                 Seksneutralaj parencovortoj - rezultoj de opinisondo de 
                 Markos Kramer de Lingva Kritiko</a></li>
-            </ul>''' $1
+            </ul>''' \
+        $build_dir/var/www/glateo.net/en/rimedoj \
+        $build_dir/var/www/glateo.net/eo/rimedoj
 
     $source_dir/rpl/rpl '@extra-resources' \
              '''<ul>
                     <li><a href="https://www.youtube.com/watch?v=ZyxDjiT3lfw">Ri Liberas</a></li>
-                </ul>''' $1
+                </ul>''' \
+        $build_dir/var/www/glateo.net/en/rimedoj \
+        $build_dir/var/www/glateo.net/eo/rimedoj
 
     $source_dir/rpl/rpl '@parentismo-roots' \
              '''<ol>
@@ -96,7 +118,9 @@ function replace_keywords() {
                     <li>sioro -sinjoro</li>
                     <li>viduo - vidvo</li>
                     <li>☆ adolto, ☆ plenkreskulo, ☆ homo - viro</li>
-                </ol>''' $1
+                </ol>''' \
+        $build_dir/var/www/glateo.net/en/parentismo \
+        $build_dir/var/www/glateo.net/eo/parentismo
 
     $source_dir/rpl/rpl '@parentismo-patrismo-example' \
              '''<ol>
@@ -113,7 +137,9 @@ function replace_keywords() {
                     <li>
                         Unu kuzo kaj unu kuzino estas du gekuzoj.
                     </li>
-                </ol>''' $1
+                </ol>''' \
+        $build_dir/var/www/glateo.net/en/parentismo \
+        $build_dir/var/www/glateo.net/eo/parentismo
 
     $source_dir/rpl/rpl '@parentismo-example' \
              '''<ol>
@@ -128,7 +154,9 @@ function replace_keywords() {
                     <li>
                         Unu kuzeniĉo kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
                     </li>
-                </ol>''' $1
+                </ol>''' \
+        $build_dir/var/www/glateo.net/en/parentismo \
+        $build_dir/var/www/glateo.net/eo/parentismo
     
     $source_dir/rpl/rpl '@riismo-example' \
              '''<ul>
@@ -141,25 +169,9 @@ function replace_keywords() {
                     <li>Ĉu vi vidas rin?</li>
                     <li>Mi vidas riajn katojn kaj hundojn.</li>
                     <li>Vi vidas rian domon.</li>
-                </ul>''' $1
-}
-
-if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
-
-    make -C $source_dir/rpl/
-    make -C $source_dir/vortaro/
-    make -C $source_dir/vortaro/pscv/
-    
-    rm -rf $build_dir
-    mkdir -p $build_dir/var/www/ \
-        $build_dir/etc/ \
-        $build_dir/usr/lib/apache2/modules/
-
-    cd $source_dir/
-    cp -r apache2/ $build_dir/etc/
-    cp -r glateo.net/ $build_dir/var/www/
-    install -m644 $source_dir/vortaro/.libs/mod_vortaro.so \
-        $build_dir/usr/lib/apache2/modules/mod_vortaro.so
+                </ul>''' \
+        $build_dir/var/www/glateo.net/en/riismo \
+        $build_dir/var/www/glateo.net/eo/riismo
 
     ### Esperanto
     cd $build_dir/var/www/glateo.net/eo/
@@ -192,20 +204,20 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
         replace_keywords $file_name
         
         $source_dir/rpl/rpl '@header' \
-         '''<header>
-                <h1><a href="hejmo">glateo.net</a></h1>
-                <a href="demandoj-kaj-respondoj">Questions and Answers</a>
-                <a href="icxismo-kaj-ipismo">Iĉismo and Ipismo</a>
-                <a href="parentismo">Parentismo</a>
-                <a href="riismo">Riismo</a>
-                <a href="vortaro">Dictionary</a>
-            </header>''' $file_name
+     '''<header>
+            <h1><a href="hejmo">glateo.net</a></h1>
+            <a href="demandoj-kaj-respondoj">Questions and Answers</a>
+            <a href="icxismo-kaj-ipismo">Iĉismo and Ipismo</a>
+            <a href="parentismo">Parentismo</a>
+            <a href="riismo">Riismo</a>
+            <a href="vortaro">Dictionary</a>
+        </header>''' $file_name
 
         $source_dir/rpl/rpl '@footer' \
-         '''<footer>
-                <a href="pri">About</a>
-                <a href="rimedoj">List of all sources</a>
-            </footer>''' $file_name
+     '''<footer>
+            <a href="pri">About</a>
+            <a href="rimedoj">List of all sources</a>
+        </footer>''' $file_name
 
     done
 

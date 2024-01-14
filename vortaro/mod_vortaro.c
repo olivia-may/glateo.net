@@ -63,6 +63,7 @@
 #include <stdbool.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <ctype.h>
 
 #include "httpd.h"
 #include "http_config.h"
@@ -322,12 +323,15 @@ while (page[i] != '\0') { \
 \
         if (!strcmp(r->method, "POST")) { \
             if (kvp->key) { \
-    \
+\
                 /* if "word".value is not only null char (no input) */ \
                 if (kvp[0].value[0]) {\
-    \
+\
                     convert_to_proper_esperanto(kvp[0].value); \
-        \
+\
+                    for (int j = 0; j < strlen(kvp[0].value); j++) \
+                        kvp[0].value[j] = tolower(kvp[0].value[j]); \
+\
                     if (!strcmp(kvp[1].value, "eo_to_en")) { \
                         definition = search_dictionary_eo(EN, kvp[0].value); \
                     } \
@@ -335,12 +339,12 @@ while (page[i] != '\0') { \
                         definition = search_dictionary(en_to_eo, EN_TO_EO_LEN, \
                             kvp[0].value); \
                     } \
-        \
+\
                     if (!definition->len) \
                         ap_rputs(word_not_found_str, r); \
                     else \
                         ap_rputs(definition->str, r); \
-        \
+\
                     free(definition); \
                 } \
             } \

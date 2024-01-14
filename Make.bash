@@ -50,8 +50,9 @@ function replace_keywords() {
 if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
 
     make -C $source_dir/rpl/
-    make -C $source_dir/vortaro/
     make -C $source_dir/vortaro/pscv/
+    $source_dir/vortaro/pscv/pscv $source_dir/vortaro/vortaro.h
+    make -C $source_dir/vortaro/
     
     rm -rf $build_dir
     mkdir -p $build_dir/var/www/ \

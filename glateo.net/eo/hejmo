@@ -1,5 +1,5 @@
-<!-- CC-BY-SA -->
 <!DOCTYPE html>
+<!-- CC-BY-SA -->
 <html>
     <head>
         @head-content
@@ -45,7 +45,7 @@
                         pronomo, "ri".
                     </li>
                     <li>
-                        <a href="vortaro.php">Vortaro</a>
+                        <a href="vortaro">Vortaro</a>
                         - La vortaro de la retpagaro, ne finata.
                     </li>
                 </ul>

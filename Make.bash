@@ -18,14 +18,14 @@ glateo_files=(
     'retpagaro.css'
 )
 html_files=(
-    'demandoj-kaj-respondoj'
-    'icxismo-kaj-ipismo'
-    'hejmo'
-    'parentismo'
-    'pri'
-    'riismo'
-    'rimedoj'
-    'vortaro'
+    'demandoj-kaj-respondoj.html'
+    'icxismo-kaj-ipismo.html'
+    'hejmo.html'
+    'parentismo.html'
+    'pri.html'
+    'riismo.html'
+    'rimedoj.html'
+    'vortaro.html'
 )
 
 source_dir=$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)
@@ -45,6 +45,20 @@ function replace_keywords() {
                 <a href='''"\"../eo/$1\""'''>Esperanto</a>
                 <a href='''"\"../en/$1\""'''>English</a>
             </div>''' $1            
+}
+
+function remove_installed_files() {
+
+    rm -f \
+        /etc/apache2/mods-available/vortaro.conf \
+        /etc/apache2/mods-available/vortaro.load \
+        /etc/apache2/mods-enabled/vortaro.conf \
+        /etc/apache2/mods-enabled/vortaro.load \
+        /etc/apache2/sites-available/glateo.conf \
+        /etc/apache2/sites-enabled/glateo.conf \
+        /usr/lib/apache2/modules/mod_vortaro.so
+
+    rm -rf /var/www/glateo.net/
 }
 
 if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
@@ -85,15 +99,15 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
                 Seksneutralaj parencovortoj - rezultoj de opinisondo de 
                 Markos Kramer de Lingva Kritiko</a></li>
             </ul>''' \
-        $build_dir/var/www/glateo.net/en/rimedoj \
-        $build_dir/var/www/glateo.net/eo/rimedoj
+        $build_dir/var/www/glateo.net/en/rimedoj.html \
+        $build_dir/var/www/glateo.net/eo/rimedoj.html
 
     $source_dir/rpl/rpl '@extra-resources' \
              '''<ul>
                     <li><a href="https://www.youtube.com/watch?v=ZyxDjiT3lfw">Ri Liberas</a></li>
                 </ul>''' \
-        $build_dir/var/www/glateo.net/en/rimedoj \
-        $build_dir/var/www/glateo.net/eo/rimedoj
+        $build_dir/var/www/glateo.net/en/rimedoj.html \
+        $build_dir/var/www/glateo.net/eo/rimedoj.html
 
     $source_dir/rpl/rpl '@parentismo-roots' \
              '''<ol>
@@ -120,8 +134,8 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
                     <li>viduo - vidvo</li>
                     <li>☆ adolto, ☆ plenkreskulo, ☆ homo - viro</li>
                 </ol>''' \
-        $build_dir/var/www/glateo.net/en/parentismo \
-        $build_dir/var/www/glateo.net/eo/parentismo
+        $build_dir/var/www/glateo.net/en/parentismo.html \
+        $build_dir/var/www/glateo.net/eo/parentismo.html
 
     $source_dir/rpl/rpl '@parentismo-patrismo-example' \
              '''<ol>
@@ -139,8 +153,8 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
                         Unu kuzo kaj unu kuzino estas du gekuzoj.
                     </li>
                 </ol>''' \
-        $build_dir/var/www/glateo.net/en/parentismo \
-        $build_dir/var/www/glateo.net/eo/parentismo
+        $build_dir/var/www/glateo.net/en/parentismo.html \
+        $build_dir/var/www/glateo.net/eo/parentismo.html
 
     $source_dir/rpl/rpl '@parentismo-example' \
              '''<ol>
@@ -156,8 +170,8 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
                         Unu kuzeniĉo kaj unu kuzenino estas du gekuzenoj kaj du kuzenoj.
                     </li>
                 </ol>''' \
-        $build_dir/var/www/glateo.net/en/parentismo \
-        $build_dir/var/www/glateo.net/eo/parentismo
+        $build_dir/var/www/glateo.net/en/parentismo.html \
+        $build_dir/var/www/glateo.net/eo/parentismo.html
     
     $source_dir/rpl/rpl '@riismo-example' \
              '''<ul>
@@ -171,8 +185,8 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
                     <li>Mi vidas riajn katojn kaj hundojn.</li>
                     <li>Vi vidas rian domon.</li>
                 </ul>''' \
-        $build_dir/var/www/glateo.net/en/riismo \
-        $build_dir/var/www/glateo.net/eo/riismo
+        $build_dir/var/www/glateo.net/en/riismo.html \
+        $build_dir/var/www/glateo.net/eo/riismo.html
 
     ### Esperanto
     cd $build_dir/var/www/glateo.net/eo/
@@ -223,6 +237,8 @@ if [[ "$1" == "" || "$1" == "build" || "$1" == "compile" ]]; then
     done
 
 elif [[ "$1" == "install" ]]; then
+    
+    remove_installed_files
 
     cp -rf $build_dir/etc $build_dir/usr $build_dir/var /
     
@@ -231,6 +247,10 @@ elif [[ "$1" == "install" ]]; then
     
     ln -sf /etc/apache2/mods-available/vortaro.load \
         /etc/apache2/mods-enabled/vortaro.load
+
+    # .htaccess needs mod_rewrite
+    ln -sf /etc/apache2/mods-available/rewrite.load \
+        /etc/apache2/mods-enabled/rewrite.load
     
     ln -sf /etc/apache2/sites-available/glateo.conf \
         /etc/apache2/sites-enabled/glateo.conf
@@ -239,16 +259,7 @@ elif [[ "$1" == "install" ]]; then
 
 elif [[ "$1" == "uninstall" ]]; then
     
-    rm -f \
-        /etc/apache2/mods-available/vortaro.conf \
-        /etc/apache2/mods-available/vortaro.load \
-        /etc/apache2/mods-enabled/vortaro.conf \
-        /etc/apache2/mods-enabled/vortaro.load \
-        /etc/apache2/sites-available/glateo.conf \
-        /etc/apache2/sites-enabled/glateo.conf \
-        /usr/lib/apache2/modules/mod_vortaro.so
-
-    rm -rf /var/www/glateo.net/
+    remove_installed_files
 
     service apache2 restart
     

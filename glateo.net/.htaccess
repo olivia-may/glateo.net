@@ -1,2 +1,11 @@
 DirectoryIndex hejmo
 RedirectMatch ^/$ /eo/hejmo
+
+# From Amit Verma on https://stackoverflow.com/a/34726322
+RewriteEngine On
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+# end

@@ -364,14 +364,15 @@ while (page[i] != '\0') { \
     psc4b_str *definition;
     int i = 0;
 
-    if (!strcmp(r->uri, "/eo/vortaro")) {
+    if (!strcmp(r->uri, "/eo/vortaro.html")) {
         language = ESPERANTO;
     }
-    else if (!strcmp(r->uri, "/en/vortaro")) {
+    else if (!strcmp(r->uri, "/en/vortaro.html")) {
         language = ENGLISH;
     }
-    else
+    else {
         return DECLINED;
+    }
     
     r->content_type = "text/html";
     
@@ -400,22 +401,27 @@ while (page[i] != '\0') { \
 // not open the files twice
 static void vortaro_register_hooks(apr_pool_t *p)
 {
+    bool should_return = false;
+
+    if (access("/var/www/glateo.net/eo/vortaro.html", F_OK)) {
+        fputs("mod_vortaro: Could not access /var/www/glateo.net/eo/vortaro.html\n", stderr);
+	should_return = true;
+    }
+
+    if (access("/var/www/glateo.net/en/vortaro.html", F_OK)) {
+        fputs("mod_vortaro: Could not access /var/www/glateo.net/en/vortaro.html\n", stderr);
+	should_return = true;
+    }
+
+    if (should_return) return;
+    
     int alloc_len = 0;
     int i;
     
+    eo_vortaro_page = get_file_contents("/var/www/glateo.net/eo/vortaro.html", p);
+    en_vortaro_page = get_file_contents("/var/www/glateo.net/en/vortaro.html", p);
+
     ap_hook_handler(vortaro_handler, NULL, NULL, APR_HOOK_MIDDLE);
-
-    if (!access("/var/www/glateo.net/eo/vortaro", F_OK)) {
-        eo_vortaro_page = get_file_contents("/var/www/glateo.net/eo/vortaro", p);
-    }
-    else
-        fputs("Could not access /var/www/glateo.net/eo/vortaro/", stderr);
-
-    if (!access("/var/www/glateo.net/en/vortaro", F_OK)) {
-        en_vortaro_page = get_file_contents("/var/www/glateo.net/en/vortaro", p);
-    }
-    else
-        fputs("Could not access /var/www/glateo.net/en/vortaro/", stderr);
 
     // eo to en
     for (i = 0; i < DICTIONARY_LEN; i++) {
